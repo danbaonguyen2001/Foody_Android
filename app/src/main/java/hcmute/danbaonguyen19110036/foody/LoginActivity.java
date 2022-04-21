@@ -15,4 +15,8 @@ public class LoginActivity extends AppCompatActivity {
     private  void A(){
 
     }
+
+    private  void B(){
+
+    }
 }
