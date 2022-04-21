@@ -4,6 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     tools:context=".Activity.LoginActivity">
+=======
+    tools:context=".LoginActivity">
+    
+
+>>>>>>> e5bfab81c93ad667584b30b1cdcc4d1235177522
 
 </androidx.constraintlayout.widget.ConstraintLayout>
