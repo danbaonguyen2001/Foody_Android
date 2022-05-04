@@ -16,22 +16,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             >
+
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_baseline_table_rows_24"
                 android:layout_alignParentLeft="true"
                 android:background="@drawable/button_bg_transparent"
-                >
-            </Button>
+                android:drawableLeft="@drawable/ic_baseline_table_rows_24"></Button>
+
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableRight="@drawable/ic_baseline_shopping_cart_24"
                 android:layout_alignParentRight="true"
                 android:background="@drawable/button_bg_transparent"
-                >
-            </Button>
+                android:drawableRight="@drawable/ic_baseline_shopping_cart_24"></Button>
         </RelativeLayout>
         <LinearLayout
             android:layout_width="match_parent"
