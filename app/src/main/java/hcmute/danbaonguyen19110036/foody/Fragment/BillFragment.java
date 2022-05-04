@@ -10,11 +10,6 @@ import android.view.ViewGroup;
 
 import hcmute.danbaonguyen19110036.foody.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link BillFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class BillFragment extends Fragment {
 
     @Override
