@@ -52,16 +52,4 @@
         app:layout_constraintLeft_toRightOf="@id/tvLogin"
         app:layout_constraintRight_toRightOf="parent"
         />
-
-
-
-
-
-
-
-
-
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
