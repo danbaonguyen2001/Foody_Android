@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.LoginActivity"
+    tools:context=".Activity.HomeActivity"
     android:orientation="vertical">
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/vpg1"
@@ -33,7 +33,7 @@
             android:layout_height="match_parent"
             app:tabIndicatorColor="@android:color/holo_blue_light"
             app:tabMode="fixed"
-            android:background="#F60707"
+            android:background="#E4DEDE"
             app:tabSelectedTextColor="@android:color/holo_blue_light"
             app:tabTextColor="@color/black"
             android:layout_gravity="bottom"

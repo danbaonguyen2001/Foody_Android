@@ -3,12 +3,139 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment.HomeFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#E4DEDE"
+    tools:context=".FirstFragment">
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="#E4DEDE"
+        android:layout_margin="12dp"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_baseline_table_rows_24"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/button_bg_transparent"
+                >
+            </Button>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableRight="@drawable/ic_baseline_shopping_cart_24"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/button_bg_transparent"
+                >
+            </Button>
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delicious"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:padding="6sp"
+                >
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="food for you"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:paddingBottom="6sp"
+                android:paddingLeft="6sp"
+                >
+            </TextView>
+        </LinearLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/edt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                app:layout_constraintTop_toTopOf="@+id/edt"
+                app:layout_constraintRight_toRightOf="@+id/edt"
+                app:layout_constraintLeft_toLeftOf="@+id/edt"
+                app:layout_constraintBottom_toBottomOf="@+id/edt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="Search"
+                android:drawableLeft="@drawable/ic_baseline_search_24"
+                android:inputType="text"
+                android:background="@drawable/rounded_edittext"
+                android:padding="12dp"
+                android:layout_gravity="center"
+                app:layout_constraintWidth_percent="0.8"
+                >
+            </EditText>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="right"
+            android:layout_marginTop="6sp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Foods"
+                android:padding="4sp"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                >
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Drinks"
+                android:padding="4sp"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                >
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Snacks"
+                android:padding="4sp"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                >
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vegetable"
+                android:padding="4sp"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                >
+            </TextView>
+        </LinearLayout>
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/csimg1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                app:layout_constraintTop_toTopOf="@+id/csimg1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+    <!-- TODO: Update blank fragment layout -->
 </FrameLayout>
