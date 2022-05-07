@@ -20,9 +20,10 @@
         <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/activity_home.xml" value="0.11302083333333333" />
         <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/activity_login.xml" value="0.1" />
-        <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/activity_main.xml" value="0.11302083333333333" />
-        <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/activity_orders.xml" value="0.2" />
+        <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/activity_orders.xml" value="0.1" />
         <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/activity_product_detail.xml" value="0.1" />
+        <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/activity_splash.xml" value="0.1" />
         <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/forgotpass_tab_fragment.xml" value="0.11302083333333333" />
         <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/fragment_bill.xml" value="0.11302083333333333" />
         <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/fragment_favorite.xml" value="0.11302083333333333" />

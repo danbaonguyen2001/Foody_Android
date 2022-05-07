@@ -40,7 +40,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tea & Coffee & Hamburger"
+            android:text="Tea Coffee Hamburger"
             android:textSize="18dp"
             android:textStyle="bold"
             android:paddingBottom="4sp"
@@ -48,7 +48,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="USA & USA & USA"
+            android:text="USA USA USA"
             android:paddingBottom="4sp"
             />
         <TextView

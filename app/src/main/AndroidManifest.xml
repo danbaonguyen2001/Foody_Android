@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Foody">
         <activity
+            android:name=".Activity.LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.OrdersActivity"
             android:exported="false" />
         <activity
@@ -17,6 +20,9 @@
             android:exported="true" />
         <activity
             android:name=".Activity.HomeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
