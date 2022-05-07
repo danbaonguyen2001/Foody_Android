@@ -12,8 +12,10 @@ import android.view.WindowManager;
 import hcmute.danbaonguyen19110036.foody.Database.CategoryDao;
 import hcmute.danbaonguyen19110036.foody.Database.DaoMaster;
 import hcmute.danbaonguyen19110036.foody.Database.DaoSession;
-import hcmute.danbaonguyen19110036.foody.Database.Database;
-import hcmute.danbaonguyen19110036.foody.Database.User;
+import hcmute.danbaonguyen19110036.foody.Database.FoodDao;
+import hcmute.danbaonguyen19110036.foody.Database.OrderDao;
+import hcmute.danbaonguyen19110036.foody.Database.OrderItemDao;
+import hcmute.danbaonguyen19110036.foody.Database.ShopDao;
 import hcmute.danbaonguyen19110036.foody.Database.UserDao;
 import hcmute.danbaonguyen19110036.foody.R;
 
@@ -21,6 +23,10 @@ public class SplashActivity extends AppCompatActivity {
 
     private UserDao userDao;
     private CategoryDao categoryDao;
+    private ShopDao shopDao;
+    private OrderDao orderDao;
+    private OrderItemDao orderItemDao;
+    private FoodDao foodDao;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +45,10 @@ public class SplashActivity extends AppCompatActivity {
     public void initDatabase(){
         userDao = createUserDao();
         categoryDao = createCategoryDao();
+        shopDao = createShopDao();
+        orderDao = createOrderDao();
+        orderItemDao = createOrderItemDao();
+        foodDao = createFoodDao();
     }
     private UserDao createUserDao(){
         DaoSession masterSession = createTable("User");
@@ -48,6 +58,22 @@ public class SplashActivity extends AppCompatActivity {
         DaoSession masterSession = createTable("Category");
         return masterSession.getCategoryDao();
     }
+    private FoodDao createFoodDao(){
+        DaoSession masterSession = createTable("Food");
+        return masterSession.getFoodDao();
+    }
+    private OrderDao createOrderDao(){
+        DaoSession masterSession = createTable("Order");
+        return masterSession.getOrderDao();
+    }
+    private OrderItemDao createOrderItemDao(){
+        DaoSession masterSession = createTable("OrderItem");
+        return masterSession.getOrderItemDao();
+    }
+    private ShopDao createShopDao(){
+        DaoSession masterSession = createTable("Shop");
+        return masterSession.getShopDao();
+    }
     private DaoSession createTable(String tablename){
         DaoMaster.DevOpenHelper master = new DaoMaster.DevOpenHelper(getApplication(),tablename,null);
         SQLiteDatabase db = master.getWritableDatabase();
@@ -55,4 +81,5 @@ public class SplashActivity extends AppCompatActivity {
         DaoSession masterSession = daoMaster.newSession();
         return masterSession;
     }
+
 }

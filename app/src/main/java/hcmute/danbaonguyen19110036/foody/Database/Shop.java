@@ -2,32 +2,32 @@ package hcmute.danbaonguyen19110036.foody.Database;
 
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
-import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.ToMany;
 
 import java.util.List;
+import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.DaoException;
 
-@Entity(nameInDb = "Category")
-public class Category {
+@Entity(nameInDb = "Shop")
+public class Shop {
     @Id(autoincrement = true)
     private Long id;
-    private String categoryname;
-    @ToMany(referencedJoinProperty = "categoryId")
+    private String shopname;
+    @ToMany(referencedJoinProperty = "shopId")
     private List<Food> foods;
     /** Used to resolve relations */
     @Generated(hash = 2040040024)
     private transient DaoSession daoSession;
     /** Used for active entity operations. */
-    @Generated(hash = 40161530)
-    private transient CategoryDao myDao;
-    @Generated(hash = 2135702606)
-    public Category(Long id, String categoryname) {
+    @Generated(hash = 173397329)
+    private transient ShopDao myDao;
+    @Generated(hash = 1550720981)
+    public Shop(Long id, String shopname) {
         this.id = id;
-        this.categoryname = categoryname;
+        this.shopname = shopname;
     }
-    @Generated(hash = 1150634039)
-    public Category() {
+    @Generated(hash = 633476670)
+    public Shop() {
     }
     public Long getId() {
         return this.id;
@@ -35,17 +35,17 @@ public class Category {
     public void setId(Long id) {
         this.id = id;
     }
-    public String getCategoryname() {
-        return this.categoryname;
+    public String getShopname() {
+        return this.shopname;
     }
-    public void setCategoryname(String categoryname) {
-        this.categoryname = categoryname;
+    public void setShopname(String shopname) {
+        this.shopname = shopname;
     }
     /**
      * To-many relationship, resolved on first access (and after reset).
      * Changes to to-many relations are not persisted, make changes to the target entity.
      */
-    @Generated(hash = 2113908311)
+    @Generated(hash = 884663848)
     public List<Food> getFoods() {
         if (foods == null) {
             final DaoSession daoSession = this.daoSession;
@@ -53,7 +53,7 @@ public class Category {
                 throw new DaoException("Entity is detached from DAO context");
             }
             FoodDao targetDao = daoSession.getFoodDao();
-            List<Food> foodsNew = targetDao._queryCategory_Foods(id);
+            List<Food> foodsNew = targetDao._queryShop_Foods(id);
             synchronized (this) {
                 if (foods == null) {
                     foods = foodsNew;
@@ -101,9 +101,9 @@ public class Category {
         myDao.update(this);
     }
     /** called by internal mechanisms, do not call yourself. */
-    @Generated(hash = 503476761)
+    @Generated(hash = 1040006210)
     public void __setDaoSession(DaoSession daoSession) {
         this.daoSession = daoSession;
-        myDao = daoSession != null ? daoSession.getCategoryDao() : null;
+        myDao = daoSession != null ? daoSession.getShopDao() : null;
     }
 }
