@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Foody">
         <activity
+            android:name=".Activity.OrdersActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.ProductDetail"
             android:exported="true" />
         <activity
