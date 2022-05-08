@@ -10,13 +10,14 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import hcmute.danbaonguyen19110036.foody.Database.Food;
 import hcmute.danbaonguyen19110036.foody.R;
 
 public class FoodAdapter extends BaseAdapter {
     private Context context;
     private int layout;
-    private List<String> foodList;
-    public FoodAdapter(Context context, int layout, List<String> foodList) {
+    private List<Food> foodList;
+    public FoodAdapter(Context context, int layout, List<Food> foodList) {
         this.context = context;
         this.layout = layout;
         this.foodList = foodList;
@@ -45,10 +46,6 @@ public class FoodAdapter extends BaseAdapter {
         TextView foodDescription = view.findViewById(R.id.food_description);
         TextView foodPrice = view.findViewById(R.id.food_price);
         ImageView foodImage=view.findViewById(R.id.img_food);
-
-        foodName.setText("Giang");
-        foodDescription.setText("Giang");
-        foodPrice.setText("Giang");
         foodImage.setImageResource(R.drawable.hamburger);
         return view;
     }
