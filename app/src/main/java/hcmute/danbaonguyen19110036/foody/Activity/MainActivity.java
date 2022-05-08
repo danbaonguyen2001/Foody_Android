@@ -18,13 +18,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        tabLayout=findViewById(R.id.tab_layout_login);
-        viewPager=findViewById(R.id.view_pager_login);
+        setContentView(R.layout.activity_main);
 
-        loginAdapter=new LoginAdapter(getSupportFragmentManager(),
-                FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-        viewPager.setAdapter(loginAdapter);
-        tabLayout.setupWithViewPager(viewPager);
     }
 }
