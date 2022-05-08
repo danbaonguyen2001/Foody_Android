@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import hcmute.danbaonguyen19110036.foody.Database.Food;
 import hcmute.danbaonguyen19110036.foody.R;
 
 public class FoodAdapter extends BaseAdapter {

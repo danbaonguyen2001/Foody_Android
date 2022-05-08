@@ -19,7 +19,6 @@ import hcmute.danbaonguyen19110036.foody.Database.DaoSession;
 import hcmute.danbaonguyen19110036.foody.Database.FoodDao;
 import hcmute.danbaonguyen19110036.foody.Database.OrderDao;
 import hcmute.danbaonguyen19110036.foody.Database.OrderItemDao;
-import hcmute.danbaonguyen19110036.foody.Database.Shop;
 import hcmute.danbaonguyen19110036.foody.Database.ShopDao;
 import hcmute.danbaonguyen19110036.foody.Database.UserDao;
 import hcmute.danbaonguyen19110036.foody.R;
