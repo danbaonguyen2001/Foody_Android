@@ -18,6 +18,8 @@ public class LoginActivity extends AppCompatActivity {
     private LoginAdapter loginAdapter;
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +32,6 @@ public class LoginActivity extends AppCompatActivity {
                 FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         viewPager.setAdapter(loginAdapter);
         tabLayout.setupWithViewPager(viewPager);
-
 
 
     }
