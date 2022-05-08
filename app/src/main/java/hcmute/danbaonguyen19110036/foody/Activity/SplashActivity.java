@@ -55,7 +55,7 @@ public class SplashActivity extends AppCompatActivity {
         orderDao = createOrderDao();
         orderItemDao = createOrderItemDao();
         foodDao = createFoodDao();
-//        createData();
+        //createData();
     }
     private UserDao createUserDao(){
         DaoSession masterSession = createTable("User");
