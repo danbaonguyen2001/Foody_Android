@@ -9,12 +9,17 @@ import android.os.Handler;
 import android.view.Window;
 import android.view.WindowManager;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import hcmute.danbaonguyen19110036.foody.Database.Category;
 import hcmute.danbaonguyen19110036.foody.Database.CategoryDao;
 import hcmute.danbaonguyen19110036.foody.Database.DaoMaster;
 import hcmute.danbaonguyen19110036.foody.Database.DaoSession;
 import hcmute.danbaonguyen19110036.foody.Database.FoodDao;
 import hcmute.danbaonguyen19110036.foody.Database.OrderDao;
 import hcmute.danbaonguyen19110036.foody.Database.OrderItemDao;
+import hcmute.danbaonguyen19110036.foody.Database.Shop;
 import hcmute.danbaonguyen19110036.foody.Database.ShopDao;
 import hcmute.danbaonguyen19110036.foody.Database.UserDao;
 import hcmute.danbaonguyen19110036.foody.R;
@@ -82,4 +87,21 @@ public class SplashActivity extends AppCompatActivity {
         return masterSession;
     }
 
+    private void createData(){
+        List<String> categoryList = new ArrayList<>();
+        categoryList.add("Foods");
+        categoryList.add("Drinks");
+        categoryList.add("Snacks");
+        categoryList.add("Vegetables");
+        for(int i=0;i<4;i++){
+            Category c = new Category(null,categoryList.get(i));
+            categoryDao.insert(c);
+        }
+        List<String> shopList = new ArrayList<>();
+        shopList.add("Shop1");
+        shopList.add("Shop2");
+        for(int i=0;i<2;i++){
+
+        }
+    }
 }

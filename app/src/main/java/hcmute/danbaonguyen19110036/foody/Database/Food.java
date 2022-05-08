@@ -13,6 +13,8 @@ public class Food {
     @Id(autoincrement = true)
     private Long id;
     private String foodname;
+    private String description;
+    private int price;
     private int img;
     private Long categoryId;
     private Long shopId;
@@ -29,10 +31,13 @@ public class Food {
     /** Used for active entity operations. */
     @Generated(hash = 1296197325)
     private transient FoodDao myDao;
-    @Generated(hash = 1536868201)
-    public Food(Long id, String foodname, int img, Long categoryId, Long shopId) {
+    @Generated(hash = 1096996245)
+    public Food(Long id, String foodname, String description, int price, int img, Long categoryId,
+            Long shopId) {
         this.id = id;
         this.foodname = foodname;
+        this.description = description;
+        this.price = price;
         this.img = img;
         this.categoryId = categoryId;
         this.shopId = shopId;
@@ -134,5 +139,17 @@ public class Food {
     public void __setDaoSession(DaoSession daoSession) {
         this.daoSession = daoSession;
         myDao = daoSession != null ? daoSession.getFoodDao() : null;
+    }
+    public String getDescription() {
+        return this.description;
+    }
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    public int getPrice() {
+        return this.price;
+    }
+    public void setPrice(int price) {
+        this.price = price;
     }
 }

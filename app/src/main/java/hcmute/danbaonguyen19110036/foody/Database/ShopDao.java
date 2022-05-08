@@ -24,6 +24,8 @@ public class ShopDao extends AbstractDao<Shop, Long> {
     public static class Properties {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
         public final static Property Shopname = new Property(1, String.class, "shopname", false, "SHOPNAME");
+        public final static Property OpenDoor = new Property(2, String.class, "openDoor", false, "OPEN_DOOR");
+        public final static Property Pricerange = new Property(3, String.class, "pricerange", false, "PRICERANGE");
     }
 
     private DaoSession daoSession;
@@ -43,7 +45,9 @@ public class ShopDao extends AbstractDao<Shop, Long> {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "\"Shop\" (" + //
                 "\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
-                "\"SHOPNAME\" TEXT);"); // 1: shopname
+                "\"SHOPNAME\" TEXT," + // 1: shopname
+                "\"OPEN_DOOR\" TEXT," + // 2: openDoor
+                "\"PRICERANGE\" TEXT);"); // 3: pricerange
     }
 
     /** Drops the underlying database table. */
@@ -65,6 +69,16 @@ public class ShopDao extends AbstractDao<Shop, Long> {
         if (shopname != null) {
             stmt.bindString(2, shopname);
         }
+ 
+        String openDoor = entity.getOpenDoor();
+        if (openDoor != null) {
+            stmt.bindString(3, openDoor);
+        }
+ 
+        String pricerange = entity.getPricerange();
+        if (pricerange != null) {
+            stmt.bindString(4, pricerange);
+        }
     }
 
     @Override
@@ -79,6 +93,16 @@ public class ShopDao extends AbstractDao<Shop, Long> {
         String shopname = entity.getShopname();
         if (shopname != null) {
             stmt.bindString(2, shopname);
+        }
+ 
+        String openDoor = entity.getOpenDoor();
+        if (openDoor != null) {
+            stmt.bindString(3, openDoor);
+        }
+ 
+        String pricerange = entity.getPricerange();
+        if (pricerange != null) {
+            stmt.bindString(4, pricerange);
         }
     }
 
@@ -97,7 +121,9 @@ public class ShopDao extends AbstractDao<Shop, Long> {
     public Shop readEntity(Cursor cursor, int offset) {
         Shop entity = new Shop( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
-            cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1) // shopname
+            cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // shopname
+            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // openDoor
+            cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3) // pricerange
         );
         return entity;
     }
@@ -106,6 +132,8 @@ public class ShopDao extends AbstractDao<Shop, Long> {
     public void readEntity(Cursor cursor, Shop entity, int offset) {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
         entity.setShopname(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
+        entity.setOpenDoor(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
+        entity.setPricerange(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
      }
     
     @Override

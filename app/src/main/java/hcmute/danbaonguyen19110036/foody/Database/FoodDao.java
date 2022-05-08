@@ -27,9 +27,11 @@ public class FoodDao extends AbstractDao<Food, Long> {
     public static class Properties {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
         public final static Property Foodname = new Property(1, String.class, "foodname", false, "FOODNAME");
-        public final static Property Img = new Property(2, int.class, "img", false, "IMG");
-        public final static Property CategoryId = new Property(3, Long.class, "categoryId", false, "CATEGORY_ID");
-        public final static Property ShopId = new Property(4, Long.class, "shopId", false, "SHOP_ID");
+        public final static Property Description = new Property(2, String.class, "description", false, "DESCRIPTION");
+        public final static Property Price = new Property(3, int.class, "price", false, "PRICE");
+        public final static Property Img = new Property(4, int.class, "img", false, "IMG");
+        public final static Property CategoryId = new Property(5, Long.class, "categoryId", false, "CATEGORY_ID");
+        public final static Property ShopId = new Property(6, Long.class, "shopId", false, "SHOP_ID");
     }
 
     private DaoSession daoSession;
@@ -52,9 +54,11 @@ public class FoodDao extends AbstractDao<Food, Long> {
         db.execSQL("CREATE TABLE " + constraint + "\"Food\" (" + //
                 "\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
                 "\"FOODNAME\" TEXT," + // 1: foodname
-                "\"IMG\" INTEGER NOT NULL ," + // 2: img
-                "\"CATEGORY_ID\" INTEGER," + // 3: categoryId
-                "\"SHOP_ID\" INTEGER);"); // 4: shopId
+                "\"DESCRIPTION\" TEXT," + // 2: description
+                "\"PRICE\" INTEGER NOT NULL ," + // 3: price
+                "\"IMG\" INTEGER NOT NULL ," + // 4: img
+                "\"CATEGORY_ID\" INTEGER," + // 5: categoryId
+                "\"SHOP_ID\" INTEGER);"); // 6: shopId
     }
 
     /** Drops the underlying database table. */
@@ -76,16 +80,22 @@ public class FoodDao extends AbstractDao<Food, Long> {
         if (foodname != null) {
             stmt.bindString(2, foodname);
         }
-        stmt.bindLong(3, entity.getImg());
+ 
+        String description = entity.getDescription();
+        if (description != null) {
+            stmt.bindString(3, description);
+        }
+        stmt.bindLong(4, entity.getPrice());
+        stmt.bindLong(5, entity.getImg());
  
         Long categoryId = entity.getCategoryId();
         if (categoryId != null) {
-            stmt.bindLong(4, categoryId);
+            stmt.bindLong(6, categoryId);
         }
  
         Long shopId = entity.getShopId();
         if (shopId != null) {
-            stmt.bindLong(5, shopId);
+            stmt.bindLong(7, shopId);
         }
     }
 
@@ -102,16 +112,22 @@ public class FoodDao extends AbstractDao<Food, Long> {
         if (foodname != null) {
             stmt.bindString(2, foodname);
         }
-        stmt.bindLong(3, entity.getImg());
+ 
+        String description = entity.getDescription();
+        if (description != null) {
+            stmt.bindString(3, description);
+        }
+        stmt.bindLong(4, entity.getPrice());
+        stmt.bindLong(5, entity.getImg());
  
         Long categoryId = entity.getCategoryId();
         if (categoryId != null) {
-            stmt.bindLong(4, categoryId);
+            stmt.bindLong(6, categoryId);
         }
  
         Long shopId = entity.getShopId();
         if (shopId != null) {
-            stmt.bindLong(5, shopId);
+            stmt.bindLong(7, shopId);
         }
     }
 
@@ -131,9 +147,11 @@ public class FoodDao extends AbstractDao<Food, Long> {
         Food entity = new Food( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
             cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // foodname
-            cursor.getInt(offset + 2), // img
-            cursor.isNull(offset + 3) ? null : cursor.getLong(offset + 3), // categoryId
-            cursor.isNull(offset + 4) ? null : cursor.getLong(offset + 4) // shopId
+            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // description
+            cursor.getInt(offset + 3), // price
+            cursor.getInt(offset + 4), // img
+            cursor.isNull(offset + 5) ? null : cursor.getLong(offset + 5), // categoryId
+            cursor.isNull(offset + 6) ? null : cursor.getLong(offset + 6) // shopId
         );
         return entity;
     }
@@ -142,9 +160,11 @@ public class FoodDao extends AbstractDao<Food, Long> {
     public void readEntity(Cursor cursor, Food entity, int offset) {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
         entity.setFoodname(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
-        entity.setImg(cursor.getInt(offset + 2));
-        entity.setCategoryId(cursor.isNull(offset + 3) ? null : cursor.getLong(offset + 3));
-        entity.setShopId(cursor.isNull(offset + 4) ? null : cursor.getLong(offset + 4));
+        entity.setDescription(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
+        entity.setPrice(cursor.getInt(offset + 3));
+        entity.setImg(cursor.getInt(offset + 4));
+        entity.setCategoryId(cursor.isNull(offset + 5) ? null : cursor.getLong(offset + 5));
+        entity.setShopId(cursor.isNull(offset + 6) ? null : cursor.getLong(offset + 6));
      }
     
     @Override

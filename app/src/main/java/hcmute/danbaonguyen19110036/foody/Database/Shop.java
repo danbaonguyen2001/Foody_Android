@@ -13,6 +13,8 @@ public class Shop {
     @Id(autoincrement = true)
     private Long id;
     private String shopname;
+    private String openDoor;
+    private String pricerange;
     @ToMany(referencedJoinProperty = "shopId")
     private List<Food> foods;
     /** Used to resolve relations */
@@ -21,10 +23,12 @@ public class Shop {
     /** Used for active entity operations. */
     @Generated(hash = 173397329)
     private transient ShopDao myDao;
-    @Generated(hash = 1550720981)
-    public Shop(Long id, String shopname) {
+    @Generated(hash = 577901647)
+    public Shop(Long id, String shopname, String openDoor, String pricerange) {
         this.id = id;
         this.shopname = shopname;
+        this.openDoor = openDoor;
+        this.pricerange = pricerange;
     }
     @Generated(hash = 633476670)
     public Shop() {
@@ -105,5 +109,17 @@ public class Shop {
     public void __setDaoSession(DaoSession daoSession) {
         this.daoSession = daoSession;
         myDao = daoSession != null ? daoSession.getShopDao() : null;
+    }
+    public String getOpenDoor() {
+        return this.openDoor;
+    }
+    public void setOpenDoor(String openDoor) {
+        this.openDoor = openDoor;
+    }
+    public String getPricerange() {
+        return this.pricerange;
+    }
+    public void setPricerange(String pricerange) {
+        this.pricerange = pricerange;
     }
 }
