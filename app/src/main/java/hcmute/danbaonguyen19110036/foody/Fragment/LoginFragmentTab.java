@@ -3,6 +3,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -11,7 +12,8 @@ import androidx.fragment.app.Fragment;
 import hcmute.danbaonguyen19110036.foody.R;
 
 public class LoginFragmentTab extends Fragment  {
-
+    private static EditText nameUser,passUser;
+    public static String username,password;
 
     @Nullable
     @Override
@@ -20,7 +22,17 @@ public class LoginFragmentTab extends Fragment  {
         //connectData();
         View view = inflater.inflate(R.layout.login_tab_fragment, container, false);
 
+        nameUser=view.findViewById(R.id.edtUsername);
+        passUser=view.findViewById(R.id.edtPassword);
+
+
+
         return view;
+    }
+
+    public static void getValue(){
+        username=nameUser.getText().toString();
+        password=passUser.getText().toString();
     }
 
 }

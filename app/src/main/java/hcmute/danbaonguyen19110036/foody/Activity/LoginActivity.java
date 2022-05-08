@@ -45,8 +45,9 @@ public class LoginActivity extends AppCompatActivity {
         //Tab Register
     }
     public void LoginOnclick(View view){
-        System.out.println("Login");
-
+        if(checkLogin()){
+            Toast.makeText(this, "Login Sucess", Toast.LENGTH_SHORT).show();
+        }
     }
     public void RegisterOnclick(View view){
         SignupFragmentTab.getValue();
@@ -62,7 +63,10 @@ public class LoginActivity extends AppCompatActivity {
         User user = new User(null,username, phone, password);
         userDao.insert(user);
     }
+    private boolean checkLogin(){
 
+        return false;
+    }
     private boolean checkConfirmPass(){
         if(SignupFragmentTab.password.equals(SignupFragmentTab.confirmPassword)){
             return true;
