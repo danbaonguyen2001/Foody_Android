@@ -10,7 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Foody">
         <activity
+            android:name=".Activity.LoginActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".Activity.ProductDetail"
+            android:exported="true" />
+        <activity
             android:name=".Activity.HomeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.OrdersActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
