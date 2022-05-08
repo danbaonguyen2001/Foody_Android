@@ -17,10 +17,10 @@ import com.google.android.material.tabs.TabLayout;
 import hcmute.danbaonguyen19110036.foody.Adapter.LoginAdapter;
 import hcmute.danbaonguyen19110036.foody.Database.DaoMaster;
 import hcmute.danbaonguyen19110036.foody.Database.DaoSession;
-import hcmute.danbaonguyen19110036.foody.Database.FoodDao;
-import hcmute.danbaonguyen19110036.foody.Database.Shop;
 import hcmute.danbaonguyen19110036.foody.Database.User;
 import hcmute.danbaonguyen19110036.foody.Database.UserDao;
+import hcmute.danbaonguyen19110036.foody.Fragment.LoginFragmentTab;
+import hcmute.danbaonguyen19110036.foody.Fragment.SignupFragmentTab;
 import hcmute.danbaonguyen19110036.foody.R;
 
 
@@ -28,13 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private LoginAdapter loginAdapter;
-
-    private EditText nameUserR,phoneUserR,passUserR,confirmpassUserR;
-
-
     private UserDao userDao;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,47 +42,29 @@ public class LoginActivity extends AppCompatActivity {
                 FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         viewPager.setAdapter(loginAdapter);
         tabLayout.setupWithViewPager(viewPager);
-
         //Tab Register
-        nameUserR=(EditText)findViewById(R.id.edtFullname);
-        phoneUserR=(EditText)findViewById(R.id.edtPhone);
-        passUserR=(EditText)findViewById(R.id.edtPassword);
-        confirmpassUserR=(EditText)findViewById(R.id.edtConfirmPass);
-
-
-
     }
     public void LoginOnclick(View view){
         System.out.println("Login");
 
     }
     public void RegisterOnclick(View view){
-        System.out.println(nameUserR);
-        createUser(nameUserR.getText().toString(),
-                phoneUserR.getText().toString(),
-                passUserR.getText().toString());
-
-//        if(checkConfirmPass()){
-//            System.out.println("123");
-//
-//        }
-
+        SignupFragmentTab.getValue();
+        if(checkConfirmPass()){
+            createUser(SignupFragmentTab.username,
+                    SignupFragmentTab.phoneNumber,
+                    SignupFragmentTab.password);
+            Toast.makeText(this, "SignUp Success", Toast.LENGTH_SHORT).show();
+        }
+        return;
     }
     private void createUser(String username,String phone, String password){
-
-        User user = new User(
-                null,
-                username,
-                phone,
-                password
-        );
-
+        User user = new User(null,username, phone, password);
         userDao.insert(user);
     }
 
     private boolean checkConfirmPass(){
-        System.out.println(passUserR.getText().toString());
-        if(passUserR.getText().toString().equals(confirmpassUserR.getText().toString())){
+        if(SignupFragmentTab.password.equals(SignupFragmentTab.confirmPassword)){
             return true;
         }
         else {
