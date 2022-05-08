@@ -5,163 +5,171 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#E4DEDE">
-
-    <TextView
-        android:id="@+id/tvRegister"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintWidth_percent=".4"
-        app:layout_constraintVertical_bias=".35"
-        app:layout_constraintHorizontal_bias=".2"
-
-        android:text="Register"
-        android:textSize="32dp"
-        android:textStyle="bold"
-        android:textColor="#F8774A"
-
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHeight_percent="1"
 
-        />
+        >
+        <TextView
 
-    <ImageView
-        android:id="@+id/iconGGRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/google_32"
-        android:padding="12dp"
-        android:background="@drawable/custom_input_login"
-        app:layout_constraintVertical_bias=".35"
+            android:id="@+id/tvRegister"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            app:layout_constraintWidth_percent=".4"
+            app:layout_constraintVertical_bias="0"
+            android:layout_marginTop="16dp"
+            android:text="Register"
+            android:textSize="32dp"
+            android:textStyle="bold"
+            android:textColor="#F8774A"
+            app:layout_constraintBottom_toBottomOf="parent"
+           app:layout_constraintEnd_toStartOf="@id/iconGGRegister"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
 
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/tvRegister"
-        app:layout_constraintTop_toTopOf="parent"
-        />
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/facebook_32"
-        android:background="@drawable/custom_input_login"
-        android:padding="12dp"
-        android:layout_marginLeft="16dp"
-        app:layout_constraintVertical_bias=".35"
+            />
 
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/iconGGRegister"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        <ImageView
+            android:id="@+id/iconGGRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/google_32"
+            android:padding="12dp"
+            android:background="@drawable/custom_input_login"
+            app:layout_constraintVertical_bias=".02"
 
-    <EditText
-        android:id="@+id/edtFullname"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintVertical_bias="0.47"
-        app:layout_constraintWidth_percent="0.8"
-        android:background="@drawable/custom_input_login"
-        android:inputType="textPersonName"
-        android:hint="Full name"
-        android:paddingLeft="20dp"
-        android:paddingTop="15dp"
-        android:paddingBottom="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/tvRegister"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/facebook_32"
+            android:background="@drawable/custom_input_login"
+            android:padding="12dp"
+            android:layout_marginLeft="16dp"
+            app:layout_constraintVertical_bias=".02"
 
-    <EditText
-        android:id="@+id/edtPhone"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintWidth_percent="0.8"
-        app:layout_constraintVertical_bias="0.575"
-        android:background="@drawable/custom_input_login"
-        android:inputType="phone"
-        android:hint="Mobile phone"
-        android:paddingLeft="20dp"
-        android:paddingTop="15dp"
-        android:paddingBottom="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/iconGGRegister"
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
-    <EditText
-        android:id="@+id/edtPassword"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintVertical_bias="0.68"
-        app:layout_constraintWidth_percent="0.8"
-        android:inputType="textPassword"
-       android:hint="Password"
-        android:paddingLeft="20dp"
-        android:paddingTop="15dp"
-        android:paddingBottom="15dp"
-        android:background="@drawable/custom_input_login"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        <EditText
+            android:id="@+id/edtFullname"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
 
-    <EditText
+            app:layout_constraintWidth_percent="0.8"
+            android:background="@drawable/custom_input_login"
+            android:inputType="textPersonName"
+            android:hint="Full name"
+            android:paddingLeft="20dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvRegister"
+            app:layout_constraintBottom_toTopOf="@id/edtPhone"/>
 
-        android:id="@+id/edtConfirmPass"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintWidth_percent="0.8"
-        app:layout_constraintVertical_bias="0.785"
-        android:inputType="textPassword"
-        android:hint="Confirm Password"
-        android:paddingLeft="20dp"
-        android:paddingTop="15dp"
-        android:paddingBottom="15dp"
-        android:background="@drawable/custom_input_login"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        <EditText
+            android:id="@+id/edtPhone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintWidth_percent="0.8"
+            android:background="@drawable/custom_input_login"
+            android:inputType="phone"
+            android:hint="Mobile phone"
+            android:paddingLeft="20dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            app:layout_constraintBottom_toTopOf="@id/edtPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edtFullname"/>
+
+        <EditText
+            android:id="@+id/edtPassword"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_input_login"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:paddingLeft="20dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+           app:layout_constraintBottom_toTopOf="@id/edtConfirmPass"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edtPhone"
+
+            app:layout_constraintWidth_percent="0.8" />
+
+        <EditText
+
+            android:id="@+id/edtConfirmPass"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintWidth_percent="0.8"
+            android:inputType="textPassword"
+            android:hint="Confirm Password"
+            android:paddingLeft="20dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:background="@drawable/custom_input_login"
+            app:layout_constraintBottom_toTopOf="@id/btnSignup"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edtPassword"/>
 
 
-    <Button
-        android:id="@+id/btnSignup"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#F8774A"
-        android:text="Sign-up"
-        app:cornerRadius="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.9"
-        app:layout_constraintWidth_percent="0.4" />
-    <TextView
-        android:id="@+id/tvAlready"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintWidth_percent="0.4"
-        app:layout_constraintVertical_bias="0.885"
-        android:text="Already a Member?"
-        android:textSize="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btnSignup"
-        app:layout_constraintTop_toTopOf="parent"
-        />
-    <TextView
-        android:id="@+id/tvReturnLogin"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintWidth_percent="0.2"
-        android:text="Login"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btnSignup"
-        app:layout_constraintTop_toBottomOf="@id/tvAlready"
-        android:layout_marginBottom="48dp"
-        />
+        <Button
+            android:id="@+id/btnSignup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#F8774A"
+            android:text="Sign-up"
+            app:cornerRadius="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.2"
+            app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@id/edtConfirmPass"
+            app:layout_constraintWidth_percent="0.4" />
+        <TextView
+            android:id="@+id/tvAlready"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintWidth_percent="0.4"
+            android:text="Already a Member?"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toTopOf="@id/tvReturnLogin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnSignup"
+           app:layout_constraintTop_toBottomOf="@id/edtConfirmPass"
+            />
+        <TextView
+            android:id="@+id/tvReturnLogin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintWidth_percent="0.2"
+            android:text="Login"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnSignup"
+            app:layout_constraintTop_toBottomOf="@id/tvAlready"
+
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
