@@ -1,8 +1,11 @@
 package hcmute.danbaonguyen19110036.foody.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -55,5 +58,13 @@ public class HomeActivity extends AppCompatActivity {
                 tabLayout.selectTab(tabLayout.getTabAt(position));
             }
         });
+    }
+
+    public void OnClickCart(View view){
+        startActivity(new Intent(HomeActivity.this,CartActivity.class));
+    }
+    public void OnClickLogout(View view){
+        System.out.println("123");
+        startActivity(new Intent(HomeActivity.this,LoginActivity.class));
     }
 }

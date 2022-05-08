@@ -1,20 +1,21 @@
 package hcmute.danbaonguyen19110036.foody.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import hcmute.danbaonguyen19110036.foody.Activity.CartActivity;
+import hcmute.danbaonguyen19110036.foody.Activity.HomeActivity;
+import hcmute.danbaonguyen19110036.foody.Activity.LoginActivity;
 import hcmute.danbaonguyen19110036.foody.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link UserFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class UserFragment extends Fragment {
 
     @Override
@@ -26,6 +27,8 @@ public class UserFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_user, container, false);
+
+        View view = inflater.inflate(R.layout.fragment_user, container, false);
+        return view;
     }
 }

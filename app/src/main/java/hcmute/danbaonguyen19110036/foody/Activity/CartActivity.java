@@ -1,6 +1,8 @@
 package hcmute.danbaonguyen19110036.foody.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -22,13 +24,14 @@ public class CartActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
-
         recyclerView=findViewById(R.id.cart_list);
         recyclerView.setHasFixedSize(true);
         layoutManager= new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-
         btnCheckOut=findViewById(R.id.btnCheckOut);
         txtTotal=findViewById(R.id.tvTotalPrice);
+    }
+    public void backHome(View view){
+        startActivity(new Intent(CartActivity.this,HomeActivity.class));
     }
 }
