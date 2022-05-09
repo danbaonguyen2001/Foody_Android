@@ -83,6 +83,7 @@
                 app:layout_constraintBottom_toBottomOf="@+id/edt"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:onClick="OnClickSearch"
                 android:hint="Search"
                 android:drawableLeft="@drawable/ic_baseline_search_24"
                 android:inputType="text"

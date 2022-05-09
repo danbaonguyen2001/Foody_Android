@@ -10,22 +10,23 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import hcmute.danbaonguyen19110036.foody.Database.Food;
+import hcmute.danbaonguyen19110036.foody.Database.Shop;
 import hcmute.danbaonguyen19110036.foody.R;
 
-public class FoodAdapter extends BaseAdapter {
-    private Context context;
-    private int layout;
-    private List<Food> foodList;
-    public FoodAdapter(Context context, int layout, List<Food> foodList) {
+public class ShopAdapter extends BaseAdapter {
+    Context context;
+    int layout;
+    List<Shop> shopList;
+    TextView foodShop,foodAddress,foodStatus;
+    ImageView foodImage;
+    public ShopAdapter(Context context, int layout, List<Shop> shopList) {
         this.context = context;
         this.layout = layout;
-        this.foodList = foodList;
+        this.shopList = shopList;
     }
-
     @Override
     public int getCount() {
-        return foodList.size();
+        return shopList.size();
     }
 
     @Override
@@ -42,10 +43,10 @@ public class FoodAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         view = inflater.inflate(layout,null);
-        TextView foodName = view.findViewById(R.id.food_name);
-        TextView foodDescription = view.findViewById(R.id.food_description);
-        TextView foodPrice = view.findViewById(R.id.food_price);
-        ImageView foodImage=view.findViewById(R.id.img_food);
+        foodShop = view.findViewById(R.id.food_name_shop);
+        foodAddress = view.findViewById(R.id.food_address_shop);
+        foodStatus = view.findViewById(R.id.shop_status);
+        foodImage=view.findViewById(R.id.img_shop_search);
         foodImage.setImageResource(R.drawable.hamburger);
         return view;
     }

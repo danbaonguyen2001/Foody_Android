@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,15 +27,17 @@ public class OrdersActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_orders);
         connectData();
         ListView listViewFood = findViewById(R.id.listview_food);
         final List<Food> foodArrayList = foodDao.loadAll();
         final List<Shop> shopList = shopDao.loadAll();
-        System.out.println(foodArrayList.size());
-        System.out.println(shopList.size());
         FoodAdapter foodAdapter = new FoodAdapter(OrdersActivity.this,R.layout.layout_food,foodArrayList);
         listViewFood.setAdapter(foodAdapter);
+        foodAdapter.notifyDataSetChanged();
     }
     private void connectData(){
         shopDao = DatabaseApplication.Instance().createShopDao();

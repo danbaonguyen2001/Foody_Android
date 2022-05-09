@@ -17,10 +17,10 @@
         >
         <Button
             android:id="@+id/back_shop"
-            android:layout_marginLeft="12dp"
             android:layout_marginTop="12dp"
             android:onClick="backShop"
-            android:background="@drawable/ic_baseline_arrow_back_24"
+            android:drawableLeft="@drawable/ic_baseline_arrow_back_24"
+            android:background="@drawable/button_bg_transparent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
         </Button>
