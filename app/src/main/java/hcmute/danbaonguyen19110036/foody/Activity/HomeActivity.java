@@ -13,6 +13,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.tabs.TabLayout;
 import hcmute.danbaonguyen19110036.foody.Adapter.FragmentAdapter;
 import hcmute.danbaonguyen19110036.foody.R;
+import hcmute.danbaonguyen19110036.foody.Utils.UserToken;
 
 public class HomeActivity extends AppCompatActivity {
 

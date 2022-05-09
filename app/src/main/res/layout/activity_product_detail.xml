@@ -184,6 +184,8 @@
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
     <Button
+        android:id="@+id/btn_delivery"
+        android:onClick="Delivery"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

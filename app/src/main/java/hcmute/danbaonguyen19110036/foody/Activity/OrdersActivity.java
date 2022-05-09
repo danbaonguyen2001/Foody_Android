@@ -2,8 +2,10 @@ package hcmute.danbaonguyen19110036.foody.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,5 +38,8 @@ public class OrdersActivity extends AppCompatActivity {
     private void connectData(){
         shopDao = DatabaseApplication.Instance().createShopDao();
         foodDao = DatabaseApplication.Instance().createFoodDao();
+    }
+    public void backShop(View view){
+        startActivity(new Intent(OrdersActivity.this,ProductDetail.class));
     }
 }
