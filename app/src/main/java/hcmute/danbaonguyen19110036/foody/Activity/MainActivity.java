@@ -1,11 +1,8 @@
 package hcmute.danbaonguyen19110036.foody.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-
 import android.os.Bundle;
-
 import com.google.android.material.tabs.TabLayout;
 
 import hcmute.danbaonguyen19110036.foody.Adapter.LoginAdapter;

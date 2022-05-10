@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Activity.SplashActivity">
     <ImageView
+        android:id="@+id/img_splash"
         android:background="@color/black"
         android:src="@drawable/splash"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -16,4 +17,13 @@
         android:scaleType="fitXY"
         android:layout_height="match_parent">
     </ImageView>
+    <ImageView
+        app:layout_constraintTop_toBottomOf="@+id/img_splash"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:visibility="invisible"
+        android:id="@+id/img_test"
+        android:src="@drawable/splash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

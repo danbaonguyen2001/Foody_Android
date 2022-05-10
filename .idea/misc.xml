@@ -10,10 +10,14 @@
         <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/activity_cart.xml" value="0.1" />
         <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/activity_home.xml" value="0.10416666666666667" />
         <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/activity_login.xml" value="0.10416666666666667" />
+        <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/activity_new_food.xml" value="0.1" />
         <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/activity_orders.xml" value="0.1" />
         <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/activity_product_detail.xml" value="0.1" />
         <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/activity_search.xml" value="0.1" />
+        <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/activity_splash.xml" value="0.11302083333333333" />
+        <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/layout_food.xml" value="0.2" />
         <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/layout_search.xml" value="0.1" />
+        <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/layout_shop_home.xml" value="0.264" />
         <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/login_tab_fragment.xml" value="0.10416666666666667" />
       </map>
     </option>
