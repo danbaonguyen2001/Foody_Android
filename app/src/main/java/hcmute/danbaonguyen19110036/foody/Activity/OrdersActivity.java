@@ -31,7 +31,7 @@ public class OrdersActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_orders);
-        connectData();
+        ConnectData();
         ListView listViewFood = findViewById(R.id.listview_food);
         final List<Food> foodArrayList = foodDao.loadAll();
         final List<Shop> shopList = shopDao.loadAll();
@@ -39,7 +39,7 @@ public class OrdersActivity extends AppCompatActivity {
         listViewFood.setAdapter(foodAdapter);
         foodAdapter.notifyDataSetChanged();
     }
-    private void connectData(){
+    private void ConnectData(){
         shopDao = DatabaseApplication.Instance().createShopDao();
         foodDao = DatabaseApplication.Instance().createFoodDao();
     }

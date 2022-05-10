@@ -19,8 +19,8 @@ public class FoodAdapter extends BaseAdapter {
     private Context context;
     private int layout;
     private List<Food> foodList;
-    TextView foodName,foodDescription,foodPrice;
-    ImageView foodImage;
+    private TextView foodName,foodDescription,foodPrice;
+    private ImageView foodImage;
     public FoodAdapter(Context context, int layout, List<Food> foodList) {
         this.context = context;
         this.layout = layout;

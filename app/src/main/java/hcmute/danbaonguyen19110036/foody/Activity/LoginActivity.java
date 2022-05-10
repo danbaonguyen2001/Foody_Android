@@ -36,7 +36,6 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         tabLayout=findViewById(R.id.tab_layout_login);
         viewPager=findViewById(R.id.view_pager_login);
-
         loginAdapter=new LoginAdapter(getSupportFragmentManager(),
                 FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         viewPager.setAdapter(loginAdapter);

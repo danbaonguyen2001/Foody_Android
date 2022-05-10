@@ -81,7 +81,7 @@
             android:paddingBottom="4sp"
             android:textColor="#0CCC13"
             app:layout_constraintTop_toBottomOf="@id/tvAddress"
-           app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             />
@@ -127,35 +127,35 @@
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/menu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/wrapper_search"
+        app:layout_constraintBottom_toTopOf="@id/DsFood"
+        android:padding="18dp"
+        android:background="#E4DEDE">
+        <TextView
             app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="wrap_content"
+            android:text="Menu"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/temp"
+            android:background="@drawable/button_bg_transparent"
+            android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/wrapper_search"
-            app:layout_constraintBottom_toTopOf="@id/DsFood"
-            android:padding="18dp"
-            android:background="#E4DEDE">
-            <TextView
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_width="wrap_content"
-                android:text="Menu"
-                android:textStyle="bold"
-                android:textSize="18dp"
-                android:layout_height="wrap_content"/>
-            <Button
-                android:id="@+id/temp"
-                android:background="@drawable/button_bg_transparent"
-                android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/DsFood"
