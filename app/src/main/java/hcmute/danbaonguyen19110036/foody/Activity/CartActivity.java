@@ -15,6 +15,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import hcmute.danbaonguyen19110036.foody.Database.DatabaseApplication;
+import hcmute.danbaonguyen19110036.foody.Database.FoodDao;
 import hcmute.danbaonguyen19110036.foody.R;
 
 public class CartActivity extends AppCompatActivity {
@@ -22,6 +24,7 @@ public class CartActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private Button btnCheckOut;
     private TextView txtTotal;
+    private FoodDao foodDao;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,12 +32,16 @@ public class CartActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_cart);
+        ConnectDatabase();
         recyclerView=findViewById(R.id.cart_list);
         recyclerView.setHasFixedSize(true);
         layoutManager= new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         btnCheckOut=findViewById(R.id.btnCheckOut);
         txtTotal=findViewById(R.id.tvTotalPrice);
+    }
+    public void ConnectDatabase(){
+        foodDao = DatabaseApplication.Instance().createFoodDao();
     }
     public void backHome(View view){
         startActivity(new Intent(CartActivity.this,HomeActivity.class));

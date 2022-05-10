@@ -15,14 +15,11 @@ import hcmute.danbaonguyen19110036.foody.Fragment.SignupFragmentTab;
 public class LoginAdapter extends FragmentStatePagerAdapter {
     private Context context;
 
-
     public LoginAdapter(@NonNull FragmentManager fm, int behavior) {
         super(fm, behavior);
+        System.out.println("111");
+
     }
-
-
-
-
 
     @Override
     public int getCount() {

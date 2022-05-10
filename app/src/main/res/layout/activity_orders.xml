@@ -5,65 +5,91 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.OrdersActivity">
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/banner_food"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/wrapper_shopname"
         app:layout_constraintHeight_percent="0.3"
         android:background="@color/cardview_dark_background"
         >
         <Button
             android:id="@+id/back_shop"
-            android:layout_marginTop="12dp"
             android:onClick="backShop"
             android:drawableLeft="@drawable/ic_baseline_arrow_back_24"
             android:background="@drawable/button_bg_transparent"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.1"
+            app:layout_constraintHorizontal_bias="0">
         </Button>
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/hamburger" />
-    </RelativeLayout>
-    <LinearLayout
+            android:src="@drawable/hamburger"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:paddingLeft="16dp"
         android:id="@+id/wrapper_shopname"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/banner_food"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/wrapper_search"
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:padding="12dp"
         android:layout_height="wrap_content">
         <TextView
+            android:id="@+id/tvFoodName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Tea Coffee Hamburger"
             android:textSize="18dp"
             android:textStyle="bold"
             android:paddingBottom="4sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/tvAddress"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
             />
         <TextView
+            android:id="@+id/tvAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="USA USA USA"
             android:paddingBottom="4sp"
+            app:layout_constraintTop_toBottomOf="@id/tvFoodName"
+            app:layout_constraintBottom_toTopOf="@id/tvOpen"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
             />
         <TextView
+            android:id="@+id/tvOpen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Open"
             android:paddingBottom="4sp"
             android:textColor="#0CCC13"
+            app:layout_constraintTop_toBottomOf="@id/tvAddress"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
             />
-    </LinearLayout>
-    <LinearLayout
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/wrapper_search"
         app:layout_constraintTop_toBottomOf="@+id/wrapper_shopname"
+        app:layout_constraintBottom_toTopOf="@id/menu"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:orientation="horizontal"
@@ -72,60 +98,84 @@
         android:background="#E4DEDE"
         android:layout_height="wrap_content">
         <EditText
+            android:id="@+id/edtFoodName"
             android:inputType="text"
             android:drawableLeft="@drawable/ic_baseline_search_24"
             android:background="@drawable/rounded_edittext"
             android:layout_width="0dp"
             android:padding="12dp"
             android:hint="Search for your food"
-            android:layout_weight="3"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            app:layout_constraintWidth_percent="0.6"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/btnSearch"/>
         <Button
+            android:id="@+id/btnSearch"
             android:layout_marginLeft="6dp"
             android:text="Search"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
             app:cornerRadius="20dp"
             android:backgroundTint="#F8774A"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/edtFoodName"
+            app:layout_constraintWidth_percent="0.3"
             />
-    </LinearLayout>
-    <LinearLayout
-        android:background="#EDE7E7"
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/wrapper_search"
-        android:padding="12dp"
+        app:layout_constraintTop_toBottomOf="@id/wrapper_search"
+        app:layout_constraintBottom_toTopOf="@id/DsFood"
+        android:padding="18dp"
+        android:background="#E4DEDE">
+        <TextView
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="wrap_content"
+            android:text="Menu"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/temp"
+            android:background="@drawable/button_bg_transparent"
+            android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/DsFood"
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="wrap_content">
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_width="wrap_content"
-                android:text="Menu"
-                android:textStyle="bold"
-                android:textSize="18dp"
-                android:layout_height="wrap_content"/>
-            <Button
-                android:background="@drawable/button_bg_transparent"
-                android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-        <ListView
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/menu"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+
+        <view class="androidx.appcompat.app.AlertController$RecycleListView"
             android:id="@+id/listview_food"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </ListView>
-    </LinearLayout>
+            android:layout_height="wrap_content"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            >
+        </view>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
