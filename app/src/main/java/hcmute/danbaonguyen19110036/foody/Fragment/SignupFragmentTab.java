@@ -20,16 +20,16 @@ import hcmute.danbaonguyen19110036.foody.Database.UserDao;
 import hcmute.danbaonguyen19110036.foody.R;
 
 public class SignupFragmentTab extends Fragment {
-    private EditText nameUserR,phoneUserR,passUserR,confirmpassUserR;
+    private EditText nameUser,phoneUser,passUser,confirmpassUser;
     public String username="",phoneNumber="",password="",confirmPassword="";
     public Button buttonSignup;
     public UserDao userDao;
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.signup_tab_fragment, container, false);
-        nameUserR=view.findViewById(R.id.edtFullname);
-        phoneUserR=view.findViewById(R.id.edtPhone);
-        passUserR=view.findViewById(R.id.edtPassword);
-        confirmpassUserR=view.findViewById(R.id.edtConfirmPass);
+        nameUser=view.findViewById(R.id.edtFullname);
+        phoneUser=view.findViewById(R.id.edtPhone);
+        passUser=view.findViewById(R.id.edtPassword);
+        confirmpassUser=view.findViewById(R.id.edtConfirmPass);
         buttonSignup = view.findViewById(R.id.btnSignup);
         ConnectData();
         buttonSignup.setOnClickListener(new View.OnClickListener() {
@@ -50,10 +50,10 @@ public class SignupFragmentTab extends Fragment {
         userDao = DatabaseApplication.Instance().createUserDao();
     }
     public void getValue(){
-        username = nameUserR.getText().toString();
-        phoneNumber = phoneUserR.getText().toString();
-        password = passUserR.getText().toString();
-        confirmPassword = confirmpassUserR.getText().toString();
+        username = nameUser.getText().toString();
+        phoneNumber = phoneUser.getText().toString();
+        password = passUser.getText().toString();
+        confirmPassword = confirmpassUser.getText().toString();
     }
     public void Register(){
         QueryBuilder<User> isExistingUser = userDao.queryBuilder().where(UserDao.Properties.Username.eq(username));

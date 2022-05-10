@@ -29,7 +29,7 @@
             android:name=".Activity.SplashActivity"
             android:exported="true" />
         <activity
-            android:name=".Activity.OrdersActivity"
+            android:name=".Activity.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
