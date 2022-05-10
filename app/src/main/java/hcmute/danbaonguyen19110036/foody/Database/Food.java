@@ -4,6 +4,8 @@ import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.JoinEntity;
 import org.greenrobot.greendao.annotation.ToMany;
+
+import java.sql.Blob;
 import java.util.List;
 import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.DaoException;
@@ -15,7 +17,7 @@ public class Food {
     private String foodname;
     private String description;
     private int price;
-    private int img;
+    private byte[] img;
     private Long categoryId;
     private Long shopId;
     @ToMany
@@ -26,14 +28,15 @@ public class Food {
     )
     private List<Order> orderItem;
     /** Used to resolve relations */
+    /** Used to resolve relations */
     @Generated(hash = 2040040024)
     private transient DaoSession daoSession;
     /** Used for active entity operations. */
     @Generated(hash = 1296197325)
     private transient FoodDao myDao;
-    @Generated(hash = 1096996245)
-    public Food(Long id, String foodname, String description, int price, int img, Long categoryId,
-            Long shopId) {
+    @Generated(hash = 697382768)
+    public Food(Long id, String foodname, String description, int price, byte[] img,
+            Long categoryId, Long shopId) {
         this.id = id;
         this.foodname = foodname;
         this.description = description;
@@ -57,10 +60,22 @@ public class Food {
     public void setFoodname(String foodname) {
         this.foodname = foodname;
     }
-    public int getImg() {
+    public String getDescription() {
+        return this.description;
+    }
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    public int getPrice() {
+        return this.price;
+    }
+    public void setPrice(int price) {
+        this.price = price;
+    }
+    public byte[] getImg() {
         return this.img;
     }
-    public void setImg(int img) {
+    public void setImg(byte[] img) {
         this.img = img;
     }
     public Long getCategoryId() {
@@ -139,17 +154,5 @@ public class Food {
     public void __setDaoSession(DaoSession daoSession) {
         this.daoSession = daoSession;
         myDao = daoSession != null ? daoSession.getFoodDao() : null;
-    }
-    public String getDescription() {
-        return this.description;
-    }
-    public void setDescription(String description) {
-        this.description = description;
-    }
-    public int getPrice() {
-        return this.price;
-    }
-    public void setPrice(int price) {
-        this.price = price;
     }
 }

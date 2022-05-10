@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Foody">
         <activity
+            android:name=".Activity.HomeActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.SearchActivity"
             android:exported="false" />
         <activity
@@ -23,7 +26,7 @@
             android:name=".Activity.ProductDetail"
             android:exported="true" />
         <activity
-            android:name=".Activity.HomeActivity"
+            android:name=".Activity.SplashActivity"
             android:exported="true" />
         <activity
             android:name=".Activity.SplashActivity"
