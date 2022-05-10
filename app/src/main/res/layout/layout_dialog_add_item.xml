@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:background="#F3ECEB"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        >
+
+
+        <TextView
+            android:id="@+id/tvAddItem"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#F44336"
+            android:drawableLeft="@drawable/ic_baseline_clear_24"
+            android:text="Add  item"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:padding="6dp"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <ImageView
+            android:id="@+id/imgItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAddItem"
+            app:layout_constraintBottom_toTopOf="@id/edtNote"
+            android:src="@drawable/hamburger_64"
+            />
+        <TextView
+            android:id="@+id/tvItemName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chân gà rút xương ngâm xả tắc- Hộp lớn"
+            android:textColor="@color/black"
+            android:padding="6dp"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@id/imgItem"
+            app:layout_constraintTop_toBottomOf="@id/tvAddItem"/>
+
+        <TextView
+            android:id="@+id/tvItemDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hộp 500 chân gà rút xương"
+            android:textColor="@color/black"
+            android:padding="6dp"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@id/imgItem"
+            app:layout_constraintTop_toBottomOf="@id/tvItemName"/>
+        <TextView
+            android:id="@+id/tvPriceItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="210.000đ"
+            android:textColor="@color/black"
+            android:padding="6dp"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@id/imgItem"
+            app:layout_constraintTop_toBottomOf="@id/tvItemDescription"/>
+        <ImageView
+            android:id="@+id/imgPlus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.95"
+            app:layout_constraintVertical_bias="0.55"
+            android:src="@drawable/ic_baseline_add_24"
+            android:background="@drawable/custom_button_login_tab_fragment"
+            />
+        <TextView
+            android:id="@+id/tvQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:textColor="@color/black"
+            android:padding="10dp"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.86"
+            app:layout_constraintVertical_bias="0.55"/>
+            />
+        <ImageView
+            android:id="@+id/imgSub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.78"
+            app:layout_constraintVertical_bias="0.55"
+            android:src="@drawable/ic_baseline_remove_24"
+            android:background="@drawable/custom_button_login_tab_fragment"
+            />
+        <EditText
+            android:id="@+id/edtNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:background="@color/white"
+            android:drawableStart="@drawable/ic_baseline_create_24"
+            android:hint="Add note ..."
+            app:layout_constraintBottom_toTopOf="@id/tvAddToCart"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            android:id="@+id/tvAddToCart"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#00BCD4"
+            android:text="Add to Cart"
+            android:textAlignment="gravity"
+            android:textColor="@color/white"
+            android:padding="10dp"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+        <TextView
+            android:id="@+id/tvPriceTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:background="#00BCD4"
+            android:text="210.000đ"
+            android:textColor="@color/white"
+            android:padding="6dp"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintHorizontal_bias="0.9"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
