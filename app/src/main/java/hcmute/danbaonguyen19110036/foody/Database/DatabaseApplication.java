@@ -35,7 +35,7 @@ public class DatabaseApplication extends Application {
         orderDao = createOrderDao();
         orderItemDao = createOrderItemDao();
         foodDao = createFoodDao();
-//        createData();
+        //createData();
     }
     public UserDao createUserDao(){
         DaoSession masterSession = createTable("User");
@@ -80,8 +80,8 @@ public class DatabaseApplication extends Application {
             categoryDao.insert(c);
         }
         List<String> shopList = new ArrayList<>();
-        shopList.add("Shop7");
-        shopList.add("Shop8");
+        shopList.add("Shop10");
+        shopList.add("Shop11");
         for (int i = 0; i < 2; i++) {
             Shop s = new Shop(null, shopList.get(i), "9:00-23:00", "15000-30000");
             shopDao.insert(s);

@@ -3,6 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/DOCUMENTATION OF SUBJECTS/HK6/Mobile Programing/FoodyNew/Foody_Android/app/src/main/res/drawable/button_bg_transparent.xml" value="0.1635" />
+        <entry key="..\:/DOCUMENTATION OF SUBJECTS/HK6/Mobile Programing/FoodyNew/Foody_Android/app/src/main/res/drawable/corner_radius.xml" value="0.1635" />
+        <entry key="..\:/DOCUMENTATION OF SUBJECTS/HK6/Mobile Programing/FoodyNew/Foody_Android/app/src/main/res/drawable/custom_button_login_tab_fragment.xml" value="0.1635" />
+        <entry key="..\:/DOCUMENTATION OF SUBJECTS/HK6/Mobile Programing/FoodyNew/Foody_Android/app/src/main/res/drawable/custom_imgview.xml" value="0.1635" />
+        <entry key="..\:/DOCUMENTATION OF SUBJECTS/HK6/Mobile Programing/FoodyNew/Foody_Android/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.1635" />
+        <entry key="..\:/DOCUMENTATION OF SUBJECTS/HK6/Mobile Programing/FoodyNew/Foody_Android/app/src/main/res/drawable/ic_baseline_add_location_24.xml" value="0.1635" />
+        <entry key="..\:/DOCUMENTATION OF SUBJECTS/HK6/Mobile Programing/FoodyNew/Foody_Android/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.1635" />
+        <entry key="..\:/DOCUMENTATION OF SUBJECTS/HK6/Mobile Programing/FoodyNew/Foody_Android/app/src/main/res/drawable/ic_baseline_arrow_back_ios_24.xml" value="0.1635" />
+        <entry key="..\:/DOCUMENTATION OF SUBJECTS/HK6/Mobile Programing/FoodyNew/Foody_Android/app/src/main/res/drawable/ic_baseline_arrow_forward_ios_24.xml" value="0.1635" />
+        <entry key="..\:/DOCUMENTATION OF SUBJECTS/HK6/Mobile Programing/FoodyNew/Foody_Android/app/src/main/res/drawable/ic_baseline_assignment_24.xml" value="0.1635" />
+        <entry key="..\:/DOCUMENTATION OF SUBJECTS/HK6/Mobile Programing/FoodyNew/Foody_Android/app/src/main/res/drawable/ic_baseline_clear_24.xml" value="0.1635" />
+        <entry key="..\:/DOCUMENTATION OF SUBJECTS/HK6/Mobile Programing/FoodyNew/Foody_Android/app/src/main/res/drawable/ic_baseline_contact_phone_24.xml" value="0.1635" />
+        <entry key="..\:/DOCUMENTATION OF SUBJECTS/HK6/Mobile Programing/FoodyNew/Foody_Android/app/src/main/res/drawable/ic_baseline_directions_bike_24.xml" value="0.1635" />
+        <entry key="..\:/DOCUMENTATION OF SUBJECTS/HK6/Mobile Programing/FoodyNew/Foody_Android/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.1635" />
+        <entry key="..\:/DOCUMENTATION OF SUBJECTS/HK6/Mobile Programing/FoodyNew/Foody_Android/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.1635" />
+        <entry key="..\:/DOCUMENTATION OF SUBJECTS/HK6/Mobile Programing/FoodyNew/Foody_Android/app/src/main/res/drawable/ic_baseline_remove_24.xml" value="0.1635" />
         <entry key="..\:/DOCUMENTATION OF SUBJECTS/HK6/Mobile Programing/FoodyNew/Foody_Android/app/src/main/res/layout/activity_cart.xml" value="0.25416666666666665" />
         <entry key="..\:/DOCUMENTATION OF SUBJECTS/HK6/Mobile Programing/FoodyNew/Foody_Android/app/src/main/res/layout/activity_home.xml" value="0.228125" />
         <entry key="..\:/DOCUMENTATION OF SUBJECTS/HK6/Mobile Programing/FoodyNew/Foody_Android/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
@@ -18,6 +34,10 @@
         <entry key="..\:/DOCUMENTATION OF SUBJECTS/HK6/Mobile Programing/FoodyNew/Foody_Android/app/src/main/res/layout/fragment_home.xml" value="0.228125" />
         <entry key="..\:/DOCUMENTATION OF SUBJECTS/HK6/Mobile Programing/FoodyNew/Foody_Android/app/src/main/res/layout/fragment_notification.xml" value="0.228125" />
         <entry key="..\:/DOCUMENTATION OF SUBJECTS/HK6/Mobile Programing/FoodyNew/Foody_Android/app/src/main/res/layout/fragment_user.xml" value="0.228125" />
+        <entry key="..\:/DOCUMENTATION OF SUBJECTS/HK6/Mobile Programing/FoodyNew/Foody_Android/app/src/main/res/layout/layout_dialog_add_item.xml" value="0.2" />
+        <entry key="..\:/DOCUMENTATION OF SUBJECTS/HK6/Mobile Programing/FoodyNew/Foody_Android/app/src/main/res/layout/layout_dialog_logout.xml" value="0.25416666666666665" />
+        <entry key="..\:/DOCUMENTATION OF SUBJECTS/HK6/Mobile Programing/FoodyNew/Foody_Android/app/src/main/res/layout/layout_food.xml" value="0.16510416666666666" />
+        <entry key="..\:/DOCUMENTATION OF SUBJECTS/HK6/Mobile Programing/FoodyNew/Foody_Android/app/src/main/res/layout/layout_search.xml" value="0.1" />
         <entry key="..\:/DOCUMENTATION OF SUBJECTS/HK6/Mobile Programing/FoodyNew/Foody_Android/app/src/main/res/layout/login_tab_fragment.xml" value="0.225" />
         <entry key="..\:/DOCUMENTATION OF SUBJECTS/HK6/Mobile Programing/FoodyNew/Foody_Android/app/src/main/res/layout/signup_tab_fragment.xml" value="0.1421875" />
         <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/activity_cart.xml" value="0.2" />

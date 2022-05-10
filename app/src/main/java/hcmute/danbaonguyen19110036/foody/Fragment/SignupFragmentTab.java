@@ -36,6 +36,7 @@ public class SignupFragmentTab extends Fragment {
             @Override
             public void onClick(View view) {
                 getValue();
+
                 if (username.isEmpty()||phoneNumber.isEmpty()||password.isEmpty()||confirmPassword.isEmpty()){
                     Toast.makeText(getActivity(), "Please fill in all the information", Toast.LENGTH_SHORT).show();
                     return;
