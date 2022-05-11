@@ -48,6 +48,11 @@ public class ShopAdapter extends BaseAdapter {
         foodStatus = view.findViewById(R.id.shop_status);
         foodImage=view.findViewById(R.id.img_shop_search);
         foodImage.setImageResource(R.drawable.hamburger);
+        //Data
+        Shop shop = shopList.get(i);
+        foodShop.setText(shop.getShopname());
+        foodAddress.setText(shop.getAddress());
+        foodStatus.setText(shop.getOpenDoor());
         return view;
     }
 }

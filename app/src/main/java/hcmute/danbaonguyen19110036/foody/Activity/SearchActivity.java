@@ -4,9 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 import java.util.List;
 import hcmute.danbaonguyen19110036.foody.Adapter.ShopAdapter;
@@ -14,8 +18,14 @@ import hcmute.danbaonguyen19110036.foody.Database.DatabaseApplication;
 import hcmute.danbaonguyen19110036.foody.Database.Shop;
 import hcmute.danbaonguyen19110036.foody.Database.ShopDao;
 import hcmute.danbaonguyen19110036.foody.R;
+import hcmute.danbaonguyen19110036.foody.Utils.SaveVariable;
+
 public class SearchActivity extends AppCompatActivity {
     private ShopDao shopDao;
+    private EditText editTextSearch;
+    private List<Shop> shopArrayList;
+    private ListView listViewShop;
+    private ShopAdapter shopAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,11 +34,38 @@ public class SearchActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_search);
         ConnectDatabase();
-        ListView listViewShop = findViewById(R.id.listview_food_search);
-        final List<Shop> shopArrayList = shopDao.loadAll();
-        ShopAdapter shopAdapter = new ShopAdapter(SearchActivity.this,R.layout.layout_search,shopArrayList);
+        listViewShop = findViewById(R.id.listview_food_search);
+        editTextSearch = findViewById(R.id.edt_searchShop);
+        shopArrayList = shopDao.loadAll();
+        shopAdapter = new ShopAdapter(SearchActivity.this,R.layout.layout_search,shopArrayList);
         listViewShop.setAdapter(shopAdapter);
-        shopAdapter.notifyDataSetChanged();
+        editTextSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                String q = editTextSearch.getText().toString();
+                shopArrayList = shopDao.queryBuilder().whereOr(ShopDao.Properties.Shopname.like("%"+q+"%"),
+                        ShopDao.Properties.Address.like("%"+q+"%")).list();
+                shopAdapter = new ShopAdapter(SearchActivity.this,R.layout.layout_search,shopArrayList);
+                listViewShop.setAdapter(shopAdapter);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+        listViewShop.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                SaveVariable.shop=shopArrayList.get(i);
+                startActivity(new Intent(SearchActivity.this,ProductDetail.class));
+            }
+        });
     }
     public void backHome(View view){
         startActivity(new Intent(SearchActivity.this,HomeActivity.class));

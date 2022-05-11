@@ -102,6 +102,8 @@ public class OrdersActivity extends AppCompatActivity {
         tvItemDescription.setText(food.getDescription());
         tvPriceItem.setText(String.valueOf(food.getPrice()));
         quantity = Integer.parseInt(textViewDialog.getText().toString());
+        price = quantity*food.getPrice();
+        textViewPrice.setText(String.valueOf(price));
         imageViewAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

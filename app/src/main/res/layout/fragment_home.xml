@@ -107,15 +107,18 @@
             android:layout_marginTop="6sp"
             >
             <TextView
+                android:id="@+id/home_food"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Foods"
                 android:padding="4sp"
                 android:textStyle="bold"
                 android:textSize="18dp"
+                android:textColor="@color/purple_500"
                 >
             </TextView>
             <TextView
+                android:id="@+id/home_drinks"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Drinks"
@@ -125,6 +128,7 @@
                 >
             </TextView>
             <TextView
+                android:id="@+id/home_snacks"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Snacks"
@@ -134,9 +138,10 @@
                 >
             </TextView>
             <TextView
+                android:id="@+id/home_vegetable"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Vegetable"
+                android:text="Vegetables"
                 android:padding="4sp"
                 android:textStyle="bold"
                 android:textSize="18dp"
