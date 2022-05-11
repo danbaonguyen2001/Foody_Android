@@ -167,15 +167,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         >
 
-        <view class="androidx.appcompat.app.AlertController$RecycleListView"
+        <ListView
             android:id="@+id/listview_food"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             >
-        </view>
+        </ListView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

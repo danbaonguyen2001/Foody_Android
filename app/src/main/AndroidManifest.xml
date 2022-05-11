@@ -27,6 +27,9 @@
             android:exported="true" />
         <activity
             android:name=".Activity.CartActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.OrdersActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
