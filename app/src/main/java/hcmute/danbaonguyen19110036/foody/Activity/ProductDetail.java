@@ -7,11 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.TextView;
 
 import hcmute.danbaonguyen19110036.foody.R;
+import hcmute.danbaonguyen19110036.foody.Utils.SaveVariable;
 
 public class ProductDetail extends AppCompatActivity {
-
+    TextView textViewShopNameTitle,textViewShopName,textViewOpendoor,textViewShopAddress,textViewPriceRange;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +21,16 @@ public class ProductDetail extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_product_detail);
+        textViewShopNameTitle = findViewById(R.id.shop_name_title);
+        textViewShopName = findViewById(R.id.shop_name);
+        textViewOpendoor = findViewById(R.id.shop_opendoor);
+        textViewPriceRange = findViewById(R.id.shop_pricerange);
+        textViewShopAddress = findViewById(R.id.shop_address);
+        textViewShopNameTitle.setText(SaveVariable.shop.getShopname());
+        textViewShopName.setText(SaveVariable.shop.getShopname());
+        textViewOpendoor.setText(SaveVariable.shop.getOpenDoor());
+        textViewPriceRange.setText(SaveVariable.shop.getPricerange());
+        textViewShopAddress.setText(SaveVariable.shop.getAddress());
     }
     public void backHome(View view){
         startActivity(new Intent(ProductDetail.this,HomeActivity.class));

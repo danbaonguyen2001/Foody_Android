@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Foody">
         <activity
-            android:name=".Activity.HomeActivity"
+            android:name=".Activity.OrdersActivity"
             android:exported="false" />
         <activity
             android:name=".Activity.SearchActivity"
@@ -29,7 +29,7 @@
             android:name=".Activity.CartActivity"
             android:exported="true" />
         <activity
-            android:name=".Activity.OrdersActivity"
+            android:name=".Activity.HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

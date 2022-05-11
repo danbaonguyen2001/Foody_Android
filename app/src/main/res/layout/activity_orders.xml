@@ -50,7 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:id="@+id/tvFoodName"
+            android:id="@+id/tvShopNameMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Tea Coffee Hamburger"
@@ -58,17 +58,17 @@
             android:textStyle="bold"
             android:paddingBottom="4sp"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/tvAddress"
+            app:layout_constraintBottom_toTopOf="@+id/tvShopAddressMenu"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             />
         <TextView
-            android:id="@+id/tvAddress"
+            android:id="@+id/tvShopAddressMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="USA USA USA"
             android:paddingBottom="4sp"
-            app:layout_constraintTop_toBottomOf="@id/tvFoodName"
+            app:layout_constraintTop_toBottomOf="@id/tvShopNameMenu"
             app:layout_constraintBottom_toTopOf="@id/tvOpen"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -80,7 +80,7 @@
             android:text="Open"
             android:paddingBottom="4sp"
             android:textColor="#0CCC13"
-            app:layout_constraintTop_toBottomOf="@id/tvAddress"
+            app:layout_constraintTop_toBottomOf="@id/tvShopAddressMenu"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -115,6 +115,7 @@
             android:id="@+id/btnSearch"
             android:layout_marginLeft="6dp"
             android:text="Search"
+            android:onClick="Search"
             app:cornerRadius="20dp"
             android:backgroundTint="#F8774A"
             android:layout_width="0dp"
@@ -135,7 +136,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/wrapper_search"
         app:layout_constraintBottom_toTopOf="@id/DsFood"
-        android:padding="18dp"
+        android:padding="12dp"
         android:background="#E4DEDE">
         <TextView
             app:layout_constraintLeft_toLeftOf="parent"

@@ -11,18 +11,13 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
-import org.greenrobot.greendao.query.QueryBuilder;
-
 import java.util.List;
-
 import hcmute.danbaonguyen19110036.foody.Activity.HomeActivity;
-import hcmute.danbaonguyen19110036.foody.Activity.LoginActivity;
 import hcmute.danbaonguyen19110036.foody.Database.DatabaseApplication;
 import hcmute.danbaonguyen19110036.foody.Database.User;
 import hcmute.danbaonguyen19110036.foody.Database.UserDao;
 import hcmute.danbaonguyen19110036.foody.R;
-import hcmute.danbaonguyen19110036.foody.Utils.UserToken;
+import hcmute.danbaonguyen19110036.foody.Utils.SaveVariable;
 
 public class LoginFragmentTab extends Fragment  {
     private static EditText nameUser,passUser;
@@ -64,7 +59,7 @@ public class LoginFragmentTab extends Fragment  {
             return;
         }
         if(password.equals(isExistingUser.get(0).getPassword())){
-            UserToken.user=isExistingUser.get(0);
+            SaveVariable.user=isExistingUser.get(0);
             startActivity(new Intent(getActivity(), HomeActivity.class));
         }
         else {

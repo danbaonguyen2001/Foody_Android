@@ -14,6 +14,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -30,11 +31,20 @@ import hcmute.danbaonguyen19110036.foody.Database.FoodDao;
 import hcmute.danbaonguyen19110036.foody.Database.Shop;
 import hcmute.danbaonguyen19110036.foody.Database.ShopDao;
 import hcmute.danbaonguyen19110036.foody.R;
+import hcmute.danbaonguyen19110036.foody.Utils.SaveVariable;
+
 public class OrdersActivity extends AppCompatActivity {
     private FoodDao foodDao;
     private ShopDao shopDao;
     ListView listViewFood;
+    TextView textViewShopName,textViewShopAddress,textViewDialog,tvItemName,tvItemDescription,textViewPrice,tvPriceItem;
+    Button btnClose;
+    EditText editTextSearch;
+    ImageView imageViewAdd,imageViewSub;
+    FoodAdapter foodAdapter;
+    public List<Food> foodArrayList;
     public static int quantity;
+    public static int price;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,15 +54,20 @@ public class OrdersActivity extends AppCompatActivity {
         setContentView(R.layout.activity_orders);
         ConnectData();
         listViewFood =(ListView) findViewById(R.id.listview_food);
-        final List<Food> foodArrayList = foodDao.loadAll();
-        final List<Shop> shopList = shopDao.loadAll();
-        FoodAdapter foodAdapter = new FoodAdapter(OrdersActivity.this,R.layout.layout_food,foodArrayList);
+        editTextSearch = (EditText) findViewById(R.id.edtFoodName);
+        foodArrayList = foodDao.queryBuilder().where(FoodDao.Properties.CategoryId.eq(SaveVariable.shop.getId())).list();
+        System.out.println(foodArrayList.size());
+        foodAdapter = new FoodAdapter(OrdersActivity.this,R.layout.layout_food,foodArrayList);
         listViewFood.setAdapter(foodAdapter);
-        System.out.println("123");
+        textViewShopName = findViewById(R.id.tvShopNameMenu);
+        textViewShopAddress = findViewById(R.id.tvShopAddressMenu);
+        textViewShopName.setText(SaveVariable.shop.getShopname());
+        textViewShopAddress.setText(SaveVariable.shop.getAddress());
        listViewFood.setOnItemClickListener(new AdapterView.OnItemClickListener() {
            @Override
            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-               openDialog(Gravity.BOTTOM);
+               openDialog(Gravity.BOTTOM,foodArrayList.get(i));
+
            }
        });
     }
@@ -63,7 +78,7 @@ public class OrdersActivity extends AppCompatActivity {
     public void backShop(View view){
         startActivity(new Intent(OrdersActivity.this,ProductDetail.class));
     }
-    public void openDialog(int gravity){
+    public void openDialog(int gravity,Food food){
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.layout_dialog_add_item);
@@ -82,17 +97,18 @@ public class OrdersActivity extends AppCompatActivity {
         else {
             dialog.setCancelable(false);
         }
-        Button btnClose = (Button) dialog.findViewById(R.id.btn_Close_Dialog);
-        ImageView imageViewAdd = (ImageView) dialog.findViewById(R.id.imgPlus);
-        ImageView imageViewSub = (ImageView) dialog.findViewById(R.id.imgSub);
-        TextView textViewDialog = (TextView) dialog.findViewById(R.id.tvQuantity);
+        AnhXa(dialog);
+        tvItemName.setText(food.getFoodname());
+        tvItemDescription.setText(food.getDescription());
+        tvPriceItem.setText(String.valueOf(food.getPrice()));
         quantity = Integer.parseInt(textViewDialog.getText().toString());
-        System.out.println(quantity);
         imageViewAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 quantity++;
                 textViewDialog.setText(String.valueOf(quantity));
+                price = quantity*food.getPrice();
+                textViewPrice.setText(String.valueOf(price));
             }
         });
         imageViewSub.setOnClickListener(new View.OnClickListener() {
@@ -103,6 +119,8 @@ public class OrdersActivity extends AppCompatActivity {
                 }
                 quantity--;
                 textViewDialog.setText(String.valueOf(quantity));
+                price = quantity*food.getPrice();
+                textViewPrice.setText(String.valueOf(price));
             }
         });
         btnClose.setOnClickListener(new View.OnClickListener() {
@@ -112,5 +130,25 @@ public class OrdersActivity extends AppCompatActivity {
             }
         });
         dialog.show();
+    }
+    public void AnhXa(Dialog dialog){
+        btnClose = (Button) dialog.findViewById(R.id.btn_Close_Dialog);
+        imageViewAdd = (ImageView) dialog.findViewById(R.id.imgPlus);
+        imageViewSub = (ImageView) dialog.findViewById(R.id.imgSub);
+        textViewDialog = (TextView) dialog.findViewById(R.id.tvQuantity);
+        tvItemName = (TextView) dialog.findViewById(R.id.tvItemName);
+        tvItemDescription = (TextView) dialog.findViewById(R.id.tvItemDescription);
+        textViewPrice = (TextView) dialog.findViewById(R.id.tvPriceTotal);
+        tvPriceItem = (TextView) dialog.findViewById(R.id.tvPriceItem);
+    }
+
+    public void Search(View view){
+        String q = editTextSearch.getText().toString();
+        if(q.isEmpty()){
+            return;
+        }
+        foodArrayList= foodDao.queryBuilder().where(FoodDao.Properties.Foodname.like("%" + q + "%")).list();
+        foodAdapter = new FoodAdapter(OrdersActivity.this,R.layout.layout_food,foodArrayList);
+        listViewFood.setAdapter(foodAdapter);
     }
 }
