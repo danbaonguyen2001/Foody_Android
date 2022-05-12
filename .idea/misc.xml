@@ -28,9 +28,11 @@
         <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/cart_items.xml" value="0.2" />
         <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/forgotpass_tab_fragment.xml" value="0.1359375" />
         <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/fragment_notification.xml" value="0.12760416666666666" />
         <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/layout_dialog_add_item.xml" value="0.1" />
         <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/layout_dialog_logout.xml" value="0.13405797101449277" />
         <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/layout_food.xml" value="0.13405797101449277" />
+        <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/layout_notification.xml" value="0.264" />
         <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/layout_search.xml" value="0.14492753623188406" />
         <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/layout_shop_home.xml" value="0.25416666666666665" />
       </map>

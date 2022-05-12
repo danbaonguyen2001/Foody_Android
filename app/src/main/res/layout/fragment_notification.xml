@@ -13,9 +13,9 @@
             android:id="@+id/header_notification"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/content_notification"
             app:layout_constraintHeight_percent="0.1"
             android:background="#F30606"
             >
@@ -34,50 +34,16 @@
                 >
             </TextView>
         </androidx.constraintlayout.widget.ConstraintLayout>
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/content_notification"
+        <ListView
+            android:id="@+id/listview_notification"
+            android:layout_marginTop="12dp"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_height="wrap_content"
             app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/header_notification"
-            app:layout_constraintHeight_percent="0.8"
-            android:padding="12sp"
-            >
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintHeight_percent="0.1"
-                tools:ignore="MissingConstraints">
-                <ImageView
-                    android:id="@+id/img_notification"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintWidth_percent="0.2"
-                    android:src="@drawable/hamburger"
-                    >
-                </ImageView>
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintLeft_toRightOf="@+id/img_notification"
-                    android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintWidth_percent="0.7"
-                    >
-                </TextView>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
     <!-- TODO: Update blank fragment layout -->
 
 </FrameLayout>

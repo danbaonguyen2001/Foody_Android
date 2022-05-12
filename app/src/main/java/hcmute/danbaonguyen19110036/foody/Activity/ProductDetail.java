@@ -23,12 +23,7 @@ public class ProductDetail extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_product_detail);
-        textViewShopNameTitle = findViewById(R.id.shop_name_title);
-        textViewShopName = findViewById(R.id.shop_name);
-        textViewOpendoor = findViewById(R.id.shop_opendoor);
-        textViewPriceRange = findViewById(R.id.shop_pricerange);
-        textViewShopAddress = findViewById(R.id.shop_address);
-        imageViewBanner = findViewById(R.id.img_banner);
+        AnhXa();
         imageViewBanner.setImageResource(SaveVariable.shop.getPath());
         textViewShopNameTitle.setText(SaveVariable.shop.getShopname());
         textViewShopName.setText(SaveVariable.shop.getShopname());
@@ -41,5 +36,13 @@ public class ProductDetail extends AppCompatActivity {
     }
     public void Delivery(View view){
         startActivity(new Intent(ProductDetail.this,OrdersActivity.class));
+    }
+    public void AnhXa(){
+        textViewShopNameTitle = findViewById(R.id.shop_name_title);
+        textViewShopName = findViewById(R.id.shop_name);
+        textViewOpendoor = findViewById(R.id.shop_opendoor);
+        textViewPriceRange = findViewById(R.id.shop_pricerange);
+        textViewShopAddress = findViewById(R.id.shop_address);
+        imageViewBanner = findViewById(R.id.img_banner);
     }
 }

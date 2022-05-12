@@ -16,6 +16,7 @@ public class SaveVariable {
     public static Shop shop;
     public static Food food;
     public static List<CartModel> cartModelList;
+    public static List<NotificationModel> notificationModelList;
     public static int totalPrice;
     public static int TotalPrice(){
         totalPrice=0;
