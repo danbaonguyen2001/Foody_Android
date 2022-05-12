@@ -10,7 +10,12 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
-import org.greenrobot.greendao.query.WhereCondition;
+
+import com.google.android.gms.common.util.ArrayUtils;
+
+import java.net.IDN;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import hcmute.danbaonguyen19110036.foody.Activity.ProductDetail;
@@ -63,10 +68,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 textViewFood.setTextColor(Color.RED);
                 ChangeColor(textViewDrinks,textViewSnack,textViewVegetable);
-                Category category = getCategory(textViewFood.getText().toString());
-                List<Food> foods = getListFood(category.getId());
-                shopHomeAdapter = new ShopHomeAdapter(getActivity(),R.layout.layout_shop_home,shopList);
-                gridView.setAdapter(shopHomeAdapter);
+                loadShop(textViewFood.getText().toString());
             }
         });
         textViewDrinks.setOnClickListener(new View.OnClickListener() {
@@ -74,6 +76,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 textViewDrinks.setTextColor(Color.RED);
                 ChangeColor(textViewFood,textViewSnack,textViewVegetable);
+                loadShop(textViewDrinks.getText().toString());
             }
         });
         textViewSnack.setOnClickListener(new View.OnClickListener() {
@@ -81,6 +84,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 textViewSnack.setTextColor(Color.RED);
                 ChangeColor(textViewFood,textViewDrinks,textViewVegetable);
+                loadShop(textViewSnack.getText().toString());
             }
         });
         textViewVegetable.setOnClickListener(new View.OnClickListener() {
@@ -88,6 +92,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 textViewVegetable.setTextColor(Color.RED);
                 ChangeColor(textViewFood,textViewSnack,textViewDrinks);
+                loadShop(textViewVegetable.getText().toString());
             }
         });
         return view;
@@ -109,11 +114,26 @@ public class HomeFragment extends Fragment {
         shopDao = DatabaseApplication.Instance().createShopDao();
     }
     public Category getCategory(String categoryName){
-        List<Category> categories = categoryDao.queryBuilder().where(CategoryDao.Properties.Categoryname.eq(textViewFood.getText())).list();
+        List<Category> categories = categoryDao.queryBuilder().where(CategoryDao.Properties.Categoryname.eq(categoryName)).list();
         return categories.get(0);
     }
-    public List<Food> getListFood(Long id){
-        List<Food> foods = foodDao.queryBuilder().where(FoodDao.Properties.CategoryId.eq(id)).list();
-        return foods;
+    public List<Shop> getShop(Category category){
+        List<Long> ids = new ArrayList<>();
+        List<Food> foodList = foodDao.queryBuilder().where(FoodDao.Properties.CategoryId.eq(category.getId())).list();
+        List<Shop> shopList =shopDao.loadAll();
+        for(int i=0;i<foodList.size();i++){
+            boolean val = ids.contains(foodList.get(i).getShopId());
+            if(val==false){
+                ids.add(foodList.get(i).getShopId());
+            }
+        }
+        List<Shop> shopListByCategory = shopDao.queryBuilder().where(ShopDao.Properties.Id.in(ids)).list();
+        return shopListByCategory;
+    }
+    public void loadShop(String categoryName){
+        Category category = getCategory(categoryName);
+        shopList = getShop(category);
+        shopHomeAdapter = new ShopHomeAdapter(getActivity(),R.layout.layout_shop_home,shopList);
+        gridView.setAdapter(shopHomeAdapter);
     }
 }
