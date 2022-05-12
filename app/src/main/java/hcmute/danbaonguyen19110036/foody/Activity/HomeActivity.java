@@ -10,12 +10,16 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.tabs.TabLayout;
 import hcmute.danbaonguyen19110036.foody.Adapter.FragmentAdapter;
 import hcmute.danbaonguyen19110036.foody.R;
+import hcmute.danbaonguyen19110036.foody.Utils.SaveVariable;
+
 public class HomeActivity extends AppCompatActivity {
 
     private ViewPager2 viewPager;
@@ -63,7 +67,13 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void OnClickCart(View view){
-        startActivity(new Intent(HomeActivity.this,CartActivity.class));
+        if(SaveVariable.user==null){
+            Toast.makeText(HomeActivity.this,"Please login !",Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(HomeActivity.this,LoginActivity.class));
+        }
+        else {
+            startActivity(new Intent(HomeActivity.this,CartActivity.class));
+        }
     }
     public void OnClickLogout(View view){
         openDialog(Gravity.CENTER);

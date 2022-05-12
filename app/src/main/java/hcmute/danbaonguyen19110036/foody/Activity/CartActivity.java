@@ -17,6 +17,7 @@ import java.util.Date;
 import java.util.List;
 import hcmute.danbaonguyen19110036.foody.Adapter.CartAdapter;
 import hcmute.danbaonguyen19110036.foody.Database.DatabaseApplication;
+import hcmute.danbaonguyen19110036.foody.Database.Food;
 import hcmute.danbaonguyen19110036.foody.Database.FoodDao;
 import hcmute.danbaonguyen19110036.foody.Database.Order;
 import hcmute.danbaonguyen19110036.foody.Database.OrderDao;
@@ -25,6 +26,7 @@ import hcmute.danbaonguyen19110036.foody.Database.OrderItemDao;
 import hcmute.danbaonguyen19110036.foody.R;
 import hcmute.danbaonguyen19110036.foody.Utils.CartModel;
 import hcmute.danbaonguyen19110036.foody.Utils.Model;
+import hcmute.danbaonguyen19110036.foody.Utils.NotificationModel;
 import hcmute.danbaonguyen19110036.foody.Utils.SaveVariable;
 
 public class CartActivity extends AppCompatActivity {
@@ -82,11 +84,13 @@ public class CartActivity extends AppCompatActivity {
         List<Order> orders = orderDao.loadAll();
         Long orderId = orders.get(orders.size()-1).getId();
         for(int i=0;i<SaveVariable.cartModelList.size();i++){
-            Long foodId = SaveVariable.cartModelList.get(i).food.getId();
+            Food food = SaveVariable.cartModelList.get(i).food;
             int quantity = SaveVariable.cartModelList.get(i).getQuantity();
             int totalPrice = SaveVariable.cartModelList.get(i).getTotalPrice();
-            OrderItem orderItem = new OrderItem(null,foodId,orderId,quantity,totalPrice);
+            OrderItem orderItem = new OrderItem(null,food.getId(),orderId,quantity,totalPrice);
             orderItemDao.insert(orderItem);
+            String description = "Bạn vừa mua sản phẩm "+food.getFoodname() + " số lượng "+quantity+ " với tổng số tiền "+totalPrice;
+            SaveVariable.notificationModelList.add(new NotificationModel(food,description));
         }
         Toast.makeText(CartActivity.this,"Order success",Toast.LENGTH_SHORT).show();
     }

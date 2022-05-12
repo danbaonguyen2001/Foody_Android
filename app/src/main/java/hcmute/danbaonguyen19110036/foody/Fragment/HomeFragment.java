@@ -10,14 +10,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
-
-import com.google.android.gms.common.util.ArrayUtils;
-
-import java.net.IDN;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-
 import hcmute.danbaonguyen19110036.foody.Activity.ProductDetail;
 import hcmute.danbaonguyen19110036.foody.Adapter.ShopHomeAdapter;
 import hcmute.danbaonguyen19110036.foody.Database.Category;

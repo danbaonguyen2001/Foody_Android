@@ -52,6 +52,7 @@ public class SplashActivity extends AppCompatActivity {
         Model model = new Model(this);
         model.loadData();
         ConnectDatabase();
+        SaveVariable.notificationModelList = new ArrayList<>();
 //        createDataShop();
 //        createDataFood();
         new Handler().postDelayed(new Runnable() {

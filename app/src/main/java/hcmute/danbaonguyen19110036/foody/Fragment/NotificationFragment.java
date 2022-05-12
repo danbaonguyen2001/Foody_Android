@@ -35,10 +35,6 @@ public class NotificationFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_notification, container, false);
         listViewNotification = view.findViewById(R.id.listview_notification);
         foodDao = DatabaseApplication.Instance().createFoodDao();
-        List<Food> foodList = foodDao.loadAll();
-        SaveVariable.notificationModelList = new ArrayList<>();
-        SaveVariable.notificationModelList.add(new NotificationModel(foodList.get(0),"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"));
-        System.out.println(SaveVariable.notificationModelList.size());
         notificationAdapter=new NotificationAdapter(getActivity(),R.layout.layout_notification,SaveVariable.notificationModelList);
         listViewNotification.setAdapter(notificationAdapter);
         return view;
