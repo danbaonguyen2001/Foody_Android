@@ -25,6 +25,8 @@ public class OrderItemDao extends AbstractDao<OrderItem, Long> {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
         public final static Property FoodId = new Property(1, Long.class, "foodId", false, "FOOD_ID");
         public final static Property OrderId = new Property(2, Long.class, "orderId", false, "ORDER_ID");
+        public final static Property Quantity = new Property(3, int.class, "quantity", false, "QUANTITY");
+        public final static Property TotalPrice = new Property(4, int.class, "totalPrice", false, "TOTAL_PRICE");
     }
 
 
@@ -42,7 +44,9 @@ public class OrderItemDao extends AbstractDao<OrderItem, Long> {
         db.execSQL("CREATE TABLE " + constraint + "\"OrderItem\" (" + //
                 "\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
                 "\"FOOD_ID\" INTEGER," + // 1: foodId
-                "\"ORDER_ID\" INTEGER);"); // 2: orderId
+                "\"ORDER_ID\" INTEGER," + // 2: orderId
+                "\"QUANTITY\" INTEGER NOT NULL ," + // 3: quantity
+                "\"TOTAL_PRICE\" INTEGER NOT NULL );"); // 4: totalPrice
     }
 
     /** Drops the underlying database table. */
@@ -69,6 +73,8 @@ public class OrderItemDao extends AbstractDao<OrderItem, Long> {
         if (orderId != null) {
             stmt.bindLong(3, orderId);
         }
+        stmt.bindLong(4, entity.getQuantity());
+        stmt.bindLong(5, entity.getTotalPrice());
     }
 
     @Override
@@ -89,6 +95,8 @@ public class OrderItemDao extends AbstractDao<OrderItem, Long> {
         if (orderId != null) {
             stmt.bindLong(3, orderId);
         }
+        stmt.bindLong(4, entity.getQuantity());
+        stmt.bindLong(5, entity.getTotalPrice());
     }
 
     @Override
@@ -101,7 +109,9 @@ public class OrderItemDao extends AbstractDao<OrderItem, Long> {
         OrderItem entity = new OrderItem( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
             cursor.isNull(offset + 1) ? null : cursor.getLong(offset + 1), // foodId
-            cursor.isNull(offset + 2) ? null : cursor.getLong(offset + 2) // orderId
+            cursor.isNull(offset + 2) ? null : cursor.getLong(offset + 2), // orderId
+            cursor.getInt(offset + 3), // quantity
+            cursor.getInt(offset + 4) // totalPrice
         );
         return entity;
     }
@@ -111,6 +121,8 @@ public class OrderItemDao extends AbstractDao<OrderItem, Long> {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
         entity.setFoodId(cursor.isNull(offset + 1) ? null : cursor.getLong(offset + 1));
         entity.setOrderId(cursor.isNull(offset + 2) ? null : cursor.getLong(offset + 2));
+        entity.setQuantity(cursor.getInt(offset + 3));
+        entity.setTotalPrice(cursor.getInt(offset + 4));
      }
     
     @Override

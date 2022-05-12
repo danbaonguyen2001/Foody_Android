@@ -10,11 +10,17 @@ public class OrderItem {
     private Long id;
     private Long foodId;
     private Long orderId;
-    @Generated(hash = 1438648636)
-    public OrderItem(Long id, Long foodId, Long orderId) {
+    private int quantity;
+    private int totalPrice;
+
+    @Generated(hash = 1803630819)
+    public OrderItem(Long id, Long foodId, Long orderId, int quantity,
+            int totalPrice) {
         this.id = id;
         this.foodId = foodId;
         this.orderId = orderId;
+        this.quantity = quantity;
+        this.totalPrice = totalPrice;
     }
     @Generated(hash = 403153068)
     public OrderItem() {
@@ -36,5 +42,18 @@ public class OrderItem {
     }
     public void setOrderId(Long orderId) {
         this.orderId = orderId;
+    }
+    public int getQuantity() {
+        return quantity;
+    }
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+    public int getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(int totalPrice) {
+        this.totalPrice = totalPrice;
     }
 }

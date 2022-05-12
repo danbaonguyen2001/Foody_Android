@@ -200,6 +200,7 @@
 
     <Button
         android:id="@+id/btnCheckOut"
+        android:onClick="CheckOut"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="#F8774A"

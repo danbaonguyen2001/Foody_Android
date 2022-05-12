@@ -11,11 +11,14 @@ public class Order {
     private Long id;
     private Date OrderDate;
     private Long userId;
-    @Generated(hash = 181509437)
-    public Order(Long id, Date OrderDate, Long userId) {
+    private int totalPrice;
+
+    @Generated(hash = 171747360)
+    public Order(Long id, Date OrderDate, Long userId, int totalPrice) {
         this.id = id;
         this.OrderDate = OrderDate;
         this.userId = userId;
+        this.totalPrice = totalPrice;
     }
     @Generated(hash = 1105174599)
     public Order() {
@@ -37,5 +40,11 @@ public class Order {
     }
     public void setUserId(Long userId) {
         this.userId = userId;
+    }
+    public int getTotalPrice() {
+        return this.totalPrice;
+    }
+    public void setTotalPrice(int totalPrice) {
+        this.totalPrice = totalPrice;
     }
 }

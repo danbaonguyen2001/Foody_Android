@@ -28,6 +28,7 @@ public class OrderDao extends AbstractDao<Order, Long> {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
         public final static Property OrderDate = new Property(1, java.util.Date.class, "OrderDate", false, "ORDER_DATE");
         public final static Property UserId = new Property(2, Long.class, "userId", false, "USER_ID");
+        public final static Property TotalPrice = new Property(3, int.class, "totalPrice", false, "TOTAL_PRICE");
     }
 
     private Query<Order> food_OrderItemQuery;
@@ -47,7 +48,8 @@ public class OrderDao extends AbstractDao<Order, Long> {
         db.execSQL("CREATE TABLE " + constraint + "\"Order\" (" + //
                 "\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
                 "\"ORDER_DATE\" INTEGER," + // 1: OrderDate
-                "\"USER_ID\" INTEGER);"); // 2: userId
+                "\"USER_ID\" INTEGER," + // 2: userId
+                "\"TOTAL_PRICE\" INTEGER NOT NULL );"); // 3: totalPrice
     }
 
     /** Drops the underlying database table. */
@@ -74,6 +76,7 @@ public class OrderDao extends AbstractDao<Order, Long> {
         if (userId != null) {
             stmt.bindLong(3, userId);
         }
+        stmt.bindLong(4, entity.getTotalPrice());
     }
 
     @Override
@@ -94,6 +97,7 @@ public class OrderDao extends AbstractDao<Order, Long> {
         if (userId != null) {
             stmt.bindLong(3, userId);
         }
+        stmt.bindLong(4, entity.getTotalPrice());
     }
 
     @Override
@@ -106,7 +110,8 @@ public class OrderDao extends AbstractDao<Order, Long> {
         Order entity = new Order( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
             cursor.isNull(offset + 1) ? null : new java.util.Date(cursor.getLong(offset + 1)), // OrderDate
-            cursor.isNull(offset + 2) ? null : cursor.getLong(offset + 2) // userId
+            cursor.isNull(offset + 2) ? null : cursor.getLong(offset + 2), // userId
+            cursor.getInt(offset + 3) // totalPrice
         );
         return entity;
     }
@@ -116,6 +121,7 @@ public class OrderDao extends AbstractDao<Order, Long> {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
         entity.setOrderDate(cursor.isNull(offset + 1) ? null : new java.util.Date(cursor.getLong(offset + 1)));
         entity.setUserId(cursor.isNull(offset + 2) ? null : cursor.getLong(offset + 2));
+        entity.setTotalPrice(cursor.getInt(offset + 3));
      }
     
     @Override
