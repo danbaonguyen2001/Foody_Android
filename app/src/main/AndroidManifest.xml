@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Foody">
         <activity
+            android:name=".Activity.ForgotPasswordActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.OrdersActivity"
             android:exported="false" />
         <activity

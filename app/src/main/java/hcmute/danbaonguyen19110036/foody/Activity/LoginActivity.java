@@ -4,22 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import android.database.sqlite.SQLiteDatabase;
+import android.content.Intent;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
-
 import com.google.android.material.tabs.TabLayout;
-
 import hcmute.danbaonguyen19110036.foody.Adapter.LoginAdapter;
-import hcmute.danbaonguyen19110036.foody.Database.User;
-import hcmute.danbaonguyen19110036.foody.Database.UserDao;
-import hcmute.danbaonguyen19110036.foody.Fragment.SignupFragmentTab;
 import hcmute.danbaonguyen19110036.foody.R;
 
 
@@ -41,6 +32,9 @@ public class LoginActivity extends AppCompatActivity {
         viewPager.setAdapter(loginAdapter);
         tabLayout.setupWithViewPager(viewPager);
         //Tab Register
+    }
+    public void ForgotPassword(View view){
+        startActivity(new Intent(LoginActivity.this,ForgotPasswordActivity.class));
     }
 
 }
