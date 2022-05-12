@@ -6,9 +6,8 @@ public class CartModel {
     public int totalPrice;
     public Food food;
 
-    public CartModel(int quantity, int totalPrice, Food food) {
+    public CartModel(int quantity, Food food) {
         this.quantity = quantity;
-        this.totalPrice = totalPrice;
         this.food = food;
     }
 

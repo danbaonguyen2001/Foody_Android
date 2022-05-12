@@ -144,15 +144,17 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:background="#00BCD4"
+            android:padding="10dp"
             android:text="Add to Cart"
             android:textAlignment="gravity"
             android:textColor="@color/white"
-            android:padding="10dp"
             android:textSize="16dp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintRight_toRightOf="parent" />
+
         <TextView
             android:id="@+id/tvPriceTotal"
             android:layout_width="wrap_content"

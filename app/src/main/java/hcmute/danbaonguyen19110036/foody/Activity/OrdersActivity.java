@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,17 +32,20 @@ import hcmute.danbaonguyen19110036.foody.Database.FoodDao;
 import hcmute.danbaonguyen19110036.foody.Database.Shop;
 import hcmute.danbaonguyen19110036.foody.Database.ShopDao;
 import hcmute.danbaonguyen19110036.foody.R;
+import hcmute.danbaonguyen19110036.foody.Utils.CartModel;
+import hcmute.danbaonguyen19110036.foody.Utils.Model;
 import hcmute.danbaonguyen19110036.foody.Utils.SaveVariable;
 
 public class OrdersActivity extends AppCompatActivity {
     private FoodDao foodDao;
     private ShopDao shopDao;
     ListView listViewFood;
-    TextView textViewShopName,textViewShopAddress,textViewDialog,tvItemName,tvItemDescription,textViewPrice,tvPriceItem;
+    TextView textViewShopName,textViewShopAddress,textViewDialog,tvItemName,tvItemDescription,textViewPrice,tvPriceItem,textViewAddtoCart;
     Button btnClose;
     EditText editTextSearch;
     ImageView imageViewAdd,imageViewSub;
     FoodAdapter foodAdapter;
+    Model model;
     public List<Food> foodArrayList;
     public static int quantity;
     public static int price;
@@ -56,18 +60,17 @@ public class OrdersActivity extends AppCompatActivity {
         listViewFood =(ListView) findViewById(R.id.listview_food);
         editTextSearch = (EditText) findViewById(R.id.edtFoodName);
         foodArrayList = foodDao.queryBuilder().where(FoodDao.Properties.CategoryId.eq(SaveVariable.shop.getId())).list();
-        System.out.println(foodArrayList.size());
         foodAdapter = new FoodAdapter(OrdersActivity.this,R.layout.layout_food,foodArrayList);
         listViewFood.setAdapter(foodAdapter);
         textViewShopName = findViewById(R.id.tvShopNameMenu);
         textViewShopAddress = findViewById(R.id.tvShopAddressMenu);
         textViewShopName.setText(SaveVariable.shop.getShopname());
         textViewShopAddress.setText(SaveVariable.shop.getAddress());
+        model = new Model(this);
        listViewFood.setOnItemClickListener(new AdapterView.OnItemClickListener() {
            @Override
            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                openDialog(Gravity.BOTTOM,foodArrayList.get(i));
-
            }
        });
     }
@@ -131,6 +134,19 @@ public class OrdersActivity extends AppCompatActivity {
                 dialog.dismiss();
             }
         });
+        textViewAddtoCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CartModel cartModel = new CartModel(quantity,food);
+                if(SaveVariable.cartModelList==null){
+                    SaveVariable.cartModelList = new ArrayList<>();
+                }
+                SaveVariable.cartModelList.add(cartModel);
+                model.saveItemCart();
+                dialog.dismiss();
+                Toast.makeText(OrdersActivity.this,"Add to cart success",Toast.LENGTH_SHORT).show();
+            }
+        });
         dialog.show();
     }
     public void AnhXa(Dialog dialog){
@@ -142,6 +158,7 @@ public class OrdersActivity extends AppCompatActivity {
         tvItemDescription = (TextView) dialog.findViewById(R.id.tvItemDescription);
         textViewPrice = (TextView) dialog.findViewById(R.id.tvPriceTotal);
         tvPriceItem = (TextView) dialog.findViewById(R.id.tvPriceItem);
+        textViewAddtoCart = (TextView) dialog.findViewById(R.id.tvAddToCart);
     }
 
     public void Search(View view){

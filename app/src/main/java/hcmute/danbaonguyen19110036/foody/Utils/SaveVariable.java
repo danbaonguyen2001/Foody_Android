@@ -11,4 +11,12 @@ public class SaveVariable {
     public static Shop shop;
     public static Food food;
     public static List<CartModel> cartModelList;
+    public static int totalPrice;
+    public static int TotalPrice(){
+        totalPrice=0;
+        for(int i=0;i<SaveVariable.cartModelList.size();i++){
+            totalPrice = totalPrice + SaveVariable.cartModelList.get(i).getTotalPrice();
+        }
+        return totalPrice;
+    }
 }

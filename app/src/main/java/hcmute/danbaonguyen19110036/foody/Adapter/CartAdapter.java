@@ -14,6 +14,7 @@ import com.google.gson.Gson;
 
 import java.util.List;
 
+import hcmute.danbaonguyen19110036.foody.Activity.CartActivity;
 import hcmute.danbaonguyen19110036.foody.Activity.SplashActivity;
 import hcmute.danbaonguyen19110036.foody.Database.Category;
 import hcmute.danbaonguyen19110036.foody.Database.CategoryDao;
@@ -51,7 +52,7 @@ public class CartAdapter extends BaseAdapter {
         return 0;
     }
     private class ViewHolder{
-        public TextView foodName,foodCategory,foodQuantity,foodPrice;
+        public TextView foodName,foodCategory,foodQuantity,foodPrice,txtTotalPrice;
         public ImageView foodImage;
         public Button btnAdd,btnSub,btnDelete;
     }
@@ -71,7 +72,6 @@ public class CartAdapter extends BaseAdapter {
             holder = (ViewHolder) view.getTag();
         }
         CartModel cartModel = cartModelList.get(i);
-        int quantity = cartModel.getQuantity();
         List<Category> category = categoryDao.queryBuilder().where(CategoryDao.Properties.Id.eq(cartModel.getFood().getCategoryId())).list();
         holder.foodName.setText(cartModel.getFood().getFoodname());
         holder.foodCategory.setText(category.get(0).getCategoryname());
@@ -89,6 +89,7 @@ public class CartAdapter extends BaseAdapter {
                 holder.foodPrice.setText(String.valueOf(cartModel.getTotalPrice()));
                 SaveVariable.cartModelList.set(i,cartModel);
                 model.saveItemCart();
+                CartActivity.setPrice();
             }
         });
         holder.btnSub.setOnClickListener(new View.OnClickListener() {
@@ -104,6 +105,7 @@ public class CartAdapter extends BaseAdapter {
                 holder.foodPrice.setText(String.valueOf(cartModel.getTotalPrice()));
                 SaveVariable.cartModelList.set(i,cartModel);
                 model.saveItemCart();
+                CartActivity.setPrice();
             }
         });
         holder.btnDelete.setOnClickListener(new View.OnClickListener() {
@@ -112,6 +114,7 @@ public class CartAdapter extends BaseAdapter {
                 SaveVariable.cartModelList.remove(i);
                 model.saveItemCart();
                 notifyDataSetChanged();
+                CartActivity.setPrice();
             }
         });
         return view;
