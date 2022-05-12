@@ -17,7 +17,7 @@ public class Food {
     private String foodname;
     private String description;
     private int price;
-    private byte[] img;
+    private int path;
     private Long categoryId;
     private Long shopId;
     @ToMany
@@ -28,20 +28,19 @@ public class Food {
     )
     private List<Order> orderItem;
     /** Used to resolve relations */
-    /** Used to resolve relations */
     @Generated(hash = 2040040024)
     private transient DaoSession daoSession;
     /** Used for active entity operations. */
     @Generated(hash = 1296197325)
     private transient FoodDao myDao;
-    @Generated(hash = 697382768)
-    public Food(Long id, String foodname, String description, int price, byte[] img,
+    @Generated(hash = 277789747)
+    public Food(Long id, String foodname, String description, int price, int path,
             Long categoryId, Long shopId) {
         this.id = id;
         this.foodname = foodname;
         this.description = description;
         this.price = price;
-        this.img = img;
+        this.path = path;
         this.categoryId = categoryId;
         this.shopId = shopId;
     }
@@ -72,11 +71,11 @@ public class Food {
     public void setPrice(int price) {
         this.price = price;
     }
-    public byte[] getImg() {
-        return this.img;
+    public int getPath() {
+        return this.path;
     }
-    public void setImg(byte[] img) {
-        this.img = img;
+    public void setPath(int path) {
+        this.path = path;
     }
     public Long getCategoryId() {
         return this.categoryId;

@@ -36,4 +36,5 @@ public class Model {
         editor.putString("cart list",json);
         editor.apply();
     }
+
 }

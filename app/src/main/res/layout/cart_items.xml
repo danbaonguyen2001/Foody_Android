@@ -17,14 +17,13 @@
         >
         <ImageView
             android:id="@+id/img_cart"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:scaleType="fitXY"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@+id/wrapper_food_cart_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintWidth_percent="0.2"
-            app:layout_constraintHeight_percent="1"
             android:src="@drawable/hamburger"
             />
 

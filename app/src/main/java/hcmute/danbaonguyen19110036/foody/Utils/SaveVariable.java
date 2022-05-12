@@ -1,5 +1,10 @@
 package hcmute.danbaonguyen19110036.foody.Utils;
 
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.widget.ImageView;
+
+import java.io.ByteArrayOutputStream;
 import java.util.List;
 
 import hcmute.danbaonguyen19110036.foody.Database.Food;
@@ -18,5 +23,13 @@ public class SaveVariable {
             totalPrice = totalPrice + SaveVariable.cartModelList.get(i).getTotalPrice();
         }
         return totalPrice;
+    }
+    public static byte[] ImageView_To_Byte(ImageView img){
+        BitmapDrawable drawable = (BitmapDrawable) img.getDrawable();
+        Bitmap bitmap = drawable.getBitmap();
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG,100,stream);
+        byte[] byteArray = stream.toByteArray();
+        return byteArray;
     }
 }

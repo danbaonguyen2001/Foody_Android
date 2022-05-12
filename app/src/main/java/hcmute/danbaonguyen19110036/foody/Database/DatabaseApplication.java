@@ -10,6 +10,9 @@ import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import hcmute.danbaonguyen19110036.foody.R;
+import hcmute.danbaonguyen19110036.foody.Utils.SaveVariable;
+
 public class DatabaseApplication extends Application {
     public DaoSession daoSession;
     private UserDao userDao;
@@ -79,10 +82,5 @@ public class DatabaseApplication extends Application {
             Category c = new Category(null, categoryList.get(i));
             categoryDao.insert(c);
         }
-        for (int i = 0; i < 8; i++) {
-            Shop s = new Shop(null, "Shop "+i, "9:00-23:00", "15000-30000","New york");
-            shopDao.insert(s);
-        }
-
     }
 }

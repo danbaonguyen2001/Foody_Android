@@ -29,7 +29,7 @@ public class FoodDao extends AbstractDao<Food, Long> {
         public final static Property Foodname = new Property(1, String.class, "foodname", false, "FOODNAME");
         public final static Property Description = new Property(2, String.class, "description", false, "DESCRIPTION");
         public final static Property Price = new Property(3, int.class, "price", false, "PRICE");
-        public final static Property Img = new Property(4, byte[].class, "img", false, "IMG");
+        public final static Property Path = new Property(4, int.class, "path", false, "PATH");
         public final static Property CategoryId = new Property(5, Long.class, "categoryId", false, "CATEGORY_ID");
         public final static Property ShopId = new Property(6, Long.class, "shopId", false, "SHOP_ID");
     }
@@ -56,7 +56,7 @@ public class FoodDao extends AbstractDao<Food, Long> {
                 "\"FOODNAME\" TEXT," + // 1: foodname
                 "\"DESCRIPTION\" TEXT," + // 2: description
                 "\"PRICE\" INTEGER NOT NULL ," + // 3: price
-                "\"IMG\" BLOB," + // 4: img
+                "\"PATH\" INTEGER NOT NULL ," + // 4: path
                 "\"CATEGORY_ID\" INTEGER," + // 5: categoryId
                 "\"SHOP_ID\" INTEGER);"); // 6: shopId
     }
@@ -86,11 +86,7 @@ public class FoodDao extends AbstractDao<Food, Long> {
             stmt.bindString(3, description);
         }
         stmt.bindLong(4, entity.getPrice());
- 
-        byte[] img = entity.getImg();
-        if (img != null) {
-            stmt.bindBlob(5, img);
-        }
+        stmt.bindLong(5, entity.getPath());
  
         Long categoryId = entity.getCategoryId();
         if (categoryId != null) {
@@ -122,11 +118,7 @@ public class FoodDao extends AbstractDao<Food, Long> {
             stmt.bindString(3, description);
         }
         stmt.bindLong(4, entity.getPrice());
- 
-        byte[] img = entity.getImg();
-        if (img != null) {
-            stmt.bindBlob(5, img);
-        }
+        stmt.bindLong(5, entity.getPath());
  
         Long categoryId = entity.getCategoryId();
         if (categoryId != null) {
@@ -157,7 +149,7 @@ public class FoodDao extends AbstractDao<Food, Long> {
             cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // foodname
             cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // description
             cursor.getInt(offset + 3), // price
-            cursor.isNull(offset + 4) ? null : cursor.getBlob(offset + 4), // img
+            cursor.getInt(offset + 4), // path
             cursor.isNull(offset + 5) ? null : cursor.getLong(offset + 5), // categoryId
             cursor.isNull(offset + 6) ? null : cursor.getLong(offset + 6) // shopId
         );
@@ -170,7 +162,7 @@ public class FoodDao extends AbstractDao<Food, Long> {
         entity.setFoodname(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
         entity.setDescription(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
         entity.setPrice(cursor.getInt(offset + 3));
-        entity.setImg(cursor.isNull(offset + 4) ? null : cursor.getBlob(offset + 4));
+        entity.setPath(cursor.getInt(offset + 4));
         entity.setCategoryId(cursor.isNull(offset + 5) ? null : cursor.getLong(offset + 5));
         entity.setShopId(cursor.isNull(offset + 6) ? null : cursor.getLong(offset + 6));
      }

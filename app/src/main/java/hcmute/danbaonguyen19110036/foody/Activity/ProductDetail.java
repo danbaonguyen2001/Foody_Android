@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import hcmute.danbaonguyen19110036.foody.R;
@@ -14,6 +15,7 @@ import hcmute.danbaonguyen19110036.foody.Utils.SaveVariable;
 
 public class ProductDetail extends AppCompatActivity {
     TextView textViewShopNameTitle,textViewShopName,textViewOpendoor,textViewShopAddress,textViewPriceRange;
+    ImageView imageViewBanner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +28,8 @@ public class ProductDetail extends AppCompatActivity {
         textViewOpendoor = findViewById(R.id.shop_opendoor);
         textViewPriceRange = findViewById(R.id.shop_pricerange);
         textViewShopAddress = findViewById(R.id.shop_address);
+        imageViewBanner = findViewById(R.id.img_banner);
+        imageViewBanner.setImageResource(SaveVariable.shop.getPath());
         textViewShopNameTitle.setText(SaveVariable.shop.getShopname());
         textViewShopName.setText(SaveVariable.shop.getShopname());
         textViewOpendoor.setText(SaveVariable.shop.getOpenDoor());

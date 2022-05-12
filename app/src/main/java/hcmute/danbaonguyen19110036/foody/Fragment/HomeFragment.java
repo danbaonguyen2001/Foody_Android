@@ -36,7 +36,7 @@ public class HomeFragment extends Fragment {
     private ShopDao shopDao;
     private CategoryDao categoryDao;
     private FoodDao foodDao;
-    TextView textViewFood,textViewDrinks,textViewSnack,textViewVegetable;
+    TextView textViewFood,textViewDrinks,textViewSnack,textViewVegetable,textViewAll;
     private List<Shop> shopList;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,13 +61,23 @@ public class HomeFragment extends Fragment {
                 startActivity(new Intent(getActivity(), ProductDetail.class));
             }
         });
-        textViewFood.setTextColor(Color.RED);
-        ChangeColor(textViewDrinks,textViewSnack,textViewVegetable);
+        textViewAll.setTextColor(Color.RED);
+        ChangeColor(textViewFood,textViewDrinks,textViewSnack,textViewVegetable);
+        textViewAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textViewAll.setTextColor(Color.RED);
+                ChangeColor(textViewDrinks,textViewSnack,textViewVegetable,textViewFood);
+                shopList = shopDao.loadAll();
+                shopHomeAdapter = new ShopHomeAdapter(getActivity(),R.layout.layout_shop_home,shopList);
+                gridView.setAdapter(shopHomeAdapter);
+            }
+        });
         textViewFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 textViewFood.setTextColor(Color.RED);
-                ChangeColor(textViewDrinks,textViewSnack,textViewVegetable);
+                ChangeColor(textViewDrinks,textViewSnack,textViewVegetable,textViewAll);
                 loadShop(textViewFood.getText().toString());
             }
         });
@@ -75,7 +85,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 textViewDrinks.setTextColor(Color.RED);
-                ChangeColor(textViewFood,textViewSnack,textViewVegetable);
+                ChangeColor(textViewFood,textViewSnack,textViewVegetable,textViewAll);
                 loadShop(textViewDrinks.getText().toString());
             }
         });
@@ -83,7 +93,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 textViewSnack.setTextColor(Color.RED);
-                ChangeColor(textViewFood,textViewDrinks,textViewVegetable);
+                ChangeColor(textViewFood,textViewDrinks,textViewVegetable,textViewAll);
                 loadShop(textViewSnack.getText().toString());
             }
         });
@@ -91,7 +101,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 textViewVegetable.setTextColor(Color.RED);
-                ChangeColor(textViewFood,textViewSnack,textViewDrinks);
+                ChangeColor(textViewFood,textViewSnack,textViewDrinks,textViewAll);
                 loadShop(textViewVegetable.getText().toString());
             }
         });
@@ -102,11 +112,13 @@ public class HomeFragment extends Fragment {
         textViewDrinks = view.findViewById(R.id.home_drinks);
         textViewSnack = view.findViewById(R.id.home_snacks);
         textViewVegetable = view.findViewById(R.id.home_vegetable);
+        textViewAll = view.findViewById(R.id.home_all);
     }
-    public void ChangeColor(TextView view1,TextView view2,TextView view3){
+    public void ChangeColor(TextView view1,TextView view2,TextView view3,TextView view4){
         view1.setTextColor(Color.GRAY);
         view2.setTextColor(Color.GRAY);
         view3.setTextColor(Color.GRAY);
+        view4.setTextColor(Color.GRAY);
     }
     public void ConnectDatabase(){
         foodDao = DatabaseApplication.Instance().createFoodDao();

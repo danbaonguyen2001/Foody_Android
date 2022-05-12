@@ -43,9 +43,9 @@
             />
 
         <ImageView
-            android:id="@+id/imgItem"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/imgItemDialog"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvAddItem"
             app:layout_constraintBottom_toTopOf="@id/edtNote"
@@ -60,7 +60,7 @@
             android:padding="6dp"
             android:textSize="16dp"
             android:textStyle="bold"
-            app:layout_constraintLeft_toRightOf="@id/imgItem"
+            app:layout_constraintLeft_toRightOf="@id/imgItemDialog"
             app:layout_constraintTop_toBottomOf="@id/tvAddItem"/>
 
         <TextView
@@ -72,7 +72,7 @@
             android:padding="6dp"
             android:textSize="12dp"
             android:textStyle="bold"
-            app:layout_constraintLeft_toRightOf="@id/imgItem"
+            app:layout_constraintLeft_toRightOf="@id/imgItemDialog"
             app:layout_constraintTop_toBottomOf="@id/tvItemName"/>
         <TextView
             android:id="@+id/tvPriceItem"
@@ -83,7 +83,7 @@
             android:padding="6dp"
             android:textSize="12dp"
             android:textStyle="bold"
-            app:layout_constraintLeft_toRightOf="@id/imgItem"
+            app:layout_constraintLeft_toRightOf="@id/imgItemDialog"
             app:layout_constraintTop_toBottomOf="@id/tvItemDescription"/>
         <ImageView
             android:id="@+id/imgPlus"

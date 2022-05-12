@@ -53,6 +53,7 @@ public class ShopAdapter extends BaseAdapter {
         foodShop.setText(shop.getShopname());
         foodAddress.setText(shop.getAddress());
         foodStatus.setText(shop.getOpenDoor());
+        foodImage.setImageResource(shop.getPath());
         return view;
     }
 }

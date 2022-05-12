@@ -51,13 +51,11 @@ public class FoodAdapter extends BaseAdapter {
         foodDescription = view.findViewById(R.id.food_description);
         foodPrice = view.findViewById(R.id.food_price);
         foodImage=view.findViewById(R.id.img_food);
-        foodImage.setImageResource(R.drawable.hamburger);
 //        // Data
         foodName.setText(food.getFoodname());
         foodDescription.setText(food.getDescription());
         foodPrice.setText(String.valueOf(food.getPrice()));
-        Bitmap bitmap = BitmapFactory.decodeByteArray(food.getImg(),0,food.getImg().length);
-        foodImage.setImageBitmap(bitmap);
+        foodImage.setImageResource(food.getPath());
         return view;
     }
 }

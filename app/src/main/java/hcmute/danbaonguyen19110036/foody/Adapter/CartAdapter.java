@@ -77,6 +77,7 @@ public class CartAdapter extends BaseAdapter {
         holder.foodCategory.setText(category.get(0).getCategoryname());
         holder.foodQuantity.setText(String.valueOf(cartModel.getQuantity()));
         holder.foodPrice.setText(String.valueOf(cartModel.getTotalPrice()));
+        holder.foodImage.setImageResource(cartModel.getFood().getPath());
         Model model = new Model(context);
         holder.btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,5 +131,6 @@ public class CartAdapter extends BaseAdapter {
         holder.btnAdd = (Button) view.findViewById(R.id.btn_add_cart);
         holder.btnSub =(Button) view.findViewById(R.id.btn_sub_cart);
         holder.btnDelete = (Button) view.findViewById(R.id.btn_delete_cart);
+        holder.foodImage = (ImageView) view.findViewById(R.id.img_cart);
     }
 }

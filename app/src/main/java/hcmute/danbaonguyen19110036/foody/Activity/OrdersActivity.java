@@ -43,7 +43,7 @@ public class OrdersActivity extends AppCompatActivity {
     TextView textViewShopName,textViewShopAddress,textViewDialog,tvItemName,tvItemDescription,textViewPrice,tvPriceItem,textViewAddtoCart;
     Button btnClose;
     EditText editTextSearch;
-    ImageView imageViewAdd,imageViewSub;
+    ImageView imageViewAdd,imageViewSub,imageViewBanner,imageViewItemDialog;
     FoodAdapter foodAdapter;
     Model model;
     public List<Food> foodArrayList;
@@ -64,6 +64,8 @@ public class OrdersActivity extends AppCompatActivity {
         listViewFood.setAdapter(foodAdapter);
         textViewShopName = findViewById(R.id.tvShopNameMenu);
         textViewShopAddress = findViewById(R.id.tvShopAddressMenu);
+        imageViewBanner = findViewById(R.id.order_banner);
+        imageViewBanner.setImageResource(SaveVariable.shop.getPath());
         textViewShopName.setText(SaveVariable.shop.getShopname());
         textViewShopAddress.setText(SaveVariable.shop.getAddress());
         model = new Model(this);
@@ -107,6 +109,7 @@ public class OrdersActivity extends AppCompatActivity {
         quantity = Integer.parseInt(textViewDialog.getText().toString());
         price = quantity*food.getPrice();
         textViewPrice.setText(String.valueOf(price));
+        imageViewItemDialog.setImageResource(food.getPath());
         imageViewAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -159,6 +162,7 @@ public class OrdersActivity extends AppCompatActivity {
         textViewPrice = (TextView) dialog.findViewById(R.id.tvPriceTotal);
         tvPriceItem = (TextView) dialog.findViewById(R.id.tvPriceItem);
         textViewAddtoCart = (TextView) dialog.findViewById(R.id.tvAddToCart);
+        imageViewItemDialog = (ImageView) dialog.findViewById(R.id.imgItemDialog);
     }
 
     public void Search(View view){

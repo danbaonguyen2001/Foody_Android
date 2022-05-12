@@ -56,7 +56,7 @@ public class ShopHomeAdapter extends BaseAdapter {
             holder = (ViewHolder) view.getTag();
         }
         Shop shop = shopList.get(i);
-        holder.imageView.setImageResource(R.drawable.hamburger);
+        holder.imageView.setImageResource(shop.getPath());
         holder.textViewShopName.setText(shop.getShopname());
         holder.textViewDescription.setText(shop.getOpenDoor());
         return view;

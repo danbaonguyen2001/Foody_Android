@@ -22,6 +22,7 @@
             android:drawableLeft="@drawable/ic_baseline_arrow_back_24"
             android:background="@drawable/button_bg_transparent"
             android:layout_width="wrap_content"
+            android:drawableTint="@color/white"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -32,6 +33,8 @@
         </Button>
 
         <ImageView
+            android:id="@+id/order_banner"
+            android:scaleType="fitXY"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@drawable/hamburger"

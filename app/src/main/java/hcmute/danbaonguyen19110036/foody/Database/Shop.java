@@ -16,6 +16,7 @@ public class Shop {
     private String openDoor;
     private String pricerange;
     private String address;
+    private int path;
     @ToMany(referencedJoinProperty = "shopId")
     private List<Food> foods;
     /** Used to resolve relations */
@@ -24,13 +25,15 @@ public class Shop {
     /** Used for active entity operations. */
     @Generated(hash = 173397329)
     private transient ShopDao myDao;
-    @Generated(hash = 1195645388)
-    public Shop(Long id, String shopname, String openDoor, String pricerange, String address) {
+    @Generated(hash = 251293831)
+    public Shop(Long id, String shopname, String openDoor, String pricerange,
+            String address, int path) {
         this.id = id;
         this.shopname = shopname;
         this.openDoor = openDoor;
         this.pricerange = pricerange;
         this.address = address;
+        this.path = path;
     }
     @Generated(hash = 633476670)
     public Shop() {
@@ -46,6 +49,30 @@ public class Shop {
     }
     public void setShopname(String shopname) {
         this.shopname = shopname;
+    }
+    public String getOpenDoor() {
+        return this.openDoor;
+    }
+    public void setOpenDoor(String openDoor) {
+        this.openDoor = openDoor;
+    }
+    public String getPricerange() {
+        return this.pricerange;
+    }
+    public void setPricerange(String pricerange) {
+        this.pricerange = pricerange;
+    }
+    public String getAddress() {
+        return this.address;
+    }
+    public void setAddress(String address) {
+        this.address = address;
+    }
+    public int getPath() {
+        return this.path;
+    }
+    public void setPath(int path) {
+        this.path = path;
     }
     /**
      * To-many relationship, resolved on first access (and after reset).
@@ -111,23 +138,5 @@ public class Shop {
     public void __setDaoSession(DaoSession daoSession) {
         this.daoSession = daoSession;
         myDao = daoSession != null ? daoSession.getShopDao() : null;
-    }
-    public String getOpenDoor() {
-        return this.openDoor;
-    }
-    public void setOpenDoor(String openDoor) {
-        this.openDoor = openDoor;
-    }
-    public String getPricerange() {
-        return this.pricerange;
-    }
-    public void setPricerange(String pricerange) {
-        this.pricerange = pricerange;
-    }
-    public String getAddress() {
-        return this.address;
-    }
-    public void setAddress(String address) {
-        this.address = address;
     }
 }
