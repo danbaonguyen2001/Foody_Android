@@ -3,6 +3,7 @@ package hcmute.danbaonguyen19110036.foody.Activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
 import android.graphics.Bitmap;
@@ -13,7 +14,11 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import java.io.ByteArrayOutputStream;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,10 +35,13 @@ import hcmute.danbaonguyen19110036.foody.Database.Shop;
 import hcmute.danbaonguyen19110036.foody.Database.ShopDao;
 import hcmute.danbaonguyen19110036.foody.Database.UserDao;
 import hcmute.danbaonguyen19110036.foody.R;
+import hcmute.danbaonguyen19110036.foody.Utils.CartModel;
+import hcmute.danbaonguyen19110036.foody.Utils.Model;
+import hcmute.danbaonguyen19110036.foody.Utils.SaveVariable;
 
 public class SplashActivity extends AppCompatActivity {
     public FoodDao foodDao;
-    ImageView imageView;
+    public ImageView imageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +49,8 @@ public class SplashActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_splash);
+        Model model = new Model(this);
+        model.loadData();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
