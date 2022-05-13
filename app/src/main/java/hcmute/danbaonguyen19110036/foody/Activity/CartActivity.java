@@ -9,9 +9,9 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -39,6 +39,7 @@ public class CartActivity extends AppCompatActivity {
     private List<CartModel> cartModelList;
     private int totalPrice;
     private Model model;
+    private ConstraintLayout constraintLayoutSuccess;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,6 +74,7 @@ public class CartActivity extends AppCompatActivity {
         btnCheckOut=findViewById(R.id.btnCheckOut);
         txtTotal=findViewById(R.id.tvTotalPrice);
         subTotal=findViewById(R.id.subtotal_cart);
+        constraintLayoutSuccess = findViewById(R.id.wrapper_ordersuccess);
     }
     public static void setPrice(){
         txtTotal.setText(String.valueOf(SaveVariable.TotalPrice()));
@@ -92,6 +94,8 @@ public class CartActivity extends AppCompatActivity {
             String description = "Bạn vừa mua sản phẩm "+food.getFoodname() + " số lượng "+quantity+ " với tổng số tiền "+totalPrice;
             SaveVariable.notificationModelList.add(new NotificationModel(food,description));
         }
+        listView.setVisibility(View.INVISIBLE);
+        constraintLayoutSuccess.setVisibility(View.VISIBLE);
         Toast.makeText(CartActivity.this,"Order success",Toast.LENGTH_SHORT).show();
     }
 }

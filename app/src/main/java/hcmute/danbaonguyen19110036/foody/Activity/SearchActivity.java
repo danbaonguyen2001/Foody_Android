@@ -1,6 +1,7 @@
 package hcmute.danbaonguyen19110036.foody.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,6 +27,7 @@ public class SearchActivity extends AppCompatActivity {
     private List<Shop> shopArrayList;
     private ListView listViewShop;
     private ShopAdapter shopAdapter;
+    private ConstraintLayout constraintLayoutWarning;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +38,7 @@ public class SearchActivity extends AppCompatActivity {
         ConnectDatabase();
         listViewShop = findViewById(R.id.listview_food_search);
         editTextSearch = findViewById(R.id.edt_searchShop);
+        constraintLayoutWarning = findViewById(R.id.wrapper_search_warning);
         shopArrayList = shopDao.loadAll();
         shopAdapter = new ShopAdapter(SearchActivity.this,R.layout.layout_search,shopArrayList);
         listViewShop.setAdapter(shopAdapter);
@@ -50,8 +53,16 @@ public class SearchActivity extends AppCompatActivity {
                 String q = editTextSearch.getText().toString();
                 shopArrayList = shopDao.queryBuilder().whereOr(ShopDao.Properties.Shopname.like("%"+q+"%"),
                         ShopDao.Properties.Address.like("%"+q+"%")).list();
-                shopAdapter = new ShopAdapter(SearchActivity.this,R.layout.layout_search,shopArrayList);
-                listViewShop.setAdapter(shopAdapter);
+                if (shopArrayList.size()==0){
+                    listViewShop.setVisibility(View.INVISIBLE);
+                    constraintLayoutWarning.setVisibility(View.VISIBLE);
+                }
+                else {
+                    listViewShop.setVisibility(View.VISIBLE);
+                    constraintLayoutWarning.setVisibility(View.INVISIBLE);
+                    shopAdapter = new ShopAdapter(SearchActivity.this,R.layout.layout_search,shopArrayList);
+                    listViewShop.setAdapter(shopAdapter);
+                }
             }
 
             @Override

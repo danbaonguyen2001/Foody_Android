@@ -2,7 +2,6 @@ package hcmute.danbaonguyen19110036.foody.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-
 import hcmute.danbaonguyen19110036.foody.Database.DatabaseApplication;
 import hcmute.danbaonguyen19110036.foody.Database.User;
 import hcmute.danbaonguyen19110036.foody.Database.UserDao;
