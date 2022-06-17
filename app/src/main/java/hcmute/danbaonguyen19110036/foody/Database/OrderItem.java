@@ -12,15 +12,17 @@ public class OrderItem {
     private Long orderId;
     private int quantity;
     private int totalPrice;
+    public String status;
 
-    @Generated(hash = 1803630819)
+    @Generated(hash = 1020887657)
     public OrderItem(Long id, Long foodId, Long orderId, int quantity,
-            int totalPrice) {
+            int totalPrice, String status) {
         this.id = id;
         this.foodId = foodId;
         this.orderId = orderId;
         this.quantity = quantity;
         this.totalPrice = totalPrice;
+        this.status = status;
     }
     @Generated(hash = 403153068)
     public OrderItem() {
@@ -55,5 +57,11 @@ public class OrderItem {
 
     public void setTotalPrice(int totalPrice) {
         this.totalPrice = totalPrice;
+    }
+    public String getStatus() {
+        return this.status;
+    }
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

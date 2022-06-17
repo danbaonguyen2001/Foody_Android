@@ -1,17 +1,20 @@
-package hcmute.danbaonguyen19110036.foody.Database;
+package hcmute.danbaonguyen19110036.foody.Pattern.Singleton;
 
 import android.app.Application;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteStatement;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.widget.ImageView;
-import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import hcmute.danbaonguyen19110036.foody.R;
-import hcmute.danbaonguyen19110036.foody.Utils.SaveVariable;
+import hcmute.danbaonguyen19110036.foody.Database.Category;
+import hcmute.danbaonguyen19110036.foody.Database.CategoryDao;
+import hcmute.danbaonguyen19110036.foody.Database.DaoMaster;
+import hcmute.danbaonguyen19110036.foody.Database.DaoSession;
+import hcmute.danbaonguyen19110036.foody.Database.FoodDao;
+import hcmute.danbaonguyen19110036.foody.Database.OrderDao;
+import hcmute.danbaonguyen19110036.foody.Database.OrderItemDao;
+import hcmute.danbaonguyen19110036.foody.Database.ShopDao;
+import hcmute.danbaonguyen19110036.foody.Database.UserDao;
+
 
 public class DatabaseApplication extends Application {
     public DaoSession daoSession;
@@ -29,7 +32,10 @@ public class DatabaseApplication extends Application {
         initDatabase();
     }
     public static DatabaseApplication Instance(){
-        return _instance;
+        if(DatabaseApplication._instance==null){
+            DatabaseApplication._instance = new DatabaseApplication();
+        }
+        return DatabaseApplication._instance;
     }
     public void initDatabase(){
         userDao = createUserDao();

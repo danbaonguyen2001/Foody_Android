@@ -3,17 +3,23 @@ buildscript {
     repositories {
         jcenter()
         mavenCentral() // add repository
+        google()
     }
     dependencies {
+        classpath 'com.android.tools.build:gradle:7.1.3'
         classpath 'com.android.tools.build:gradle:3.5.3'
         classpath 'org.greenrobot:greendao-gradle-plugin:3.3.0' // add plugin
     }
 }
-plugins {
-    id 'com.android.application' version '7.1.3' apply false
-    id 'com.android.library' version '7.1.3' apply false
+allprojects {
+    repositories {
+        mavenCentral()
+        // This private repository is required to resolve the Cardinal SDK transitive dependency.
+        google()
+        maven { url "https://jitpack.io" }
+        jcenter()
+    }
 }
-
 task clean(type: Delete) {
     delete rootProject.buildDir
 }

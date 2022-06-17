@@ -16,7 +16,7 @@ import hcmute.danbaonguyen19110036.foody.Activity.ProductDetail;
 import hcmute.danbaonguyen19110036.foody.Adapter.ShopHomeAdapter;
 import hcmute.danbaonguyen19110036.foody.Database.Category;
 import hcmute.danbaonguyen19110036.foody.Database.CategoryDao;
-import hcmute.danbaonguyen19110036.foody.Database.DatabaseApplication;
+import hcmute.danbaonguyen19110036.foody.Pattern.Singleton.DatabaseApplication;
 import hcmute.danbaonguyen19110036.foody.Database.Food;
 import hcmute.danbaonguyen19110036.foody.Database.FoodDao;
 import hcmute.danbaonguyen19110036.foody.Database.Shop;

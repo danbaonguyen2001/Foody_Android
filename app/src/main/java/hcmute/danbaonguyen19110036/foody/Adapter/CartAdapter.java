@@ -9,17 +9,11 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.google.gson.Gson;
-
 import java.util.List;
-
 import hcmute.danbaonguyen19110036.foody.Activity.CartActivity;
-import hcmute.danbaonguyen19110036.foody.Activity.SplashActivity;
 import hcmute.danbaonguyen19110036.foody.Database.Category;
 import hcmute.danbaonguyen19110036.foody.Database.CategoryDao;
-import hcmute.danbaonguyen19110036.foody.Database.DatabaseApplication;
-import hcmute.danbaonguyen19110036.foody.Database.Food;
+import hcmute.danbaonguyen19110036.foody.Pattern.Singleton.DatabaseApplication;
 import hcmute.danbaonguyen19110036.foody.R;
 import hcmute.danbaonguyen19110036.foody.Utils.CartModel;
 import hcmute.danbaonguyen19110036.foody.Utils.Model;

@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import java.util.List;
 import hcmute.danbaonguyen19110036.foody.Activity.HomeActivity;
-import hcmute.danbaonguyen19110036.foody.Database.DatabaseApplication;
+import hcmute.danbaonguyen19110036.foody.Pattern.Singleton.DatabaseApplication;
 import hcmute.danbaonguyen19110036.foody.Database.User;
 import hcmute.danbaonguyen19110036.foody.Database.UserDao;
 import hcmute.danbaonguyen19110036.foody.R;

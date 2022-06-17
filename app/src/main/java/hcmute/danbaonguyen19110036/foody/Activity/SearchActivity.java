@@ -15,7 +15,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import java.util.List;
 import hcmute.danbaonguyen19110036.foody.Adapter.ShopAdapter;
-import hcmute.danbaonguyen19110036.foody.Database.DatabaseApplication;
+import hcmute.danbaonguyen19110036.foody.Pattern.Singleton.DatabaseApplication;
 import hcmute.danbaonguyen19110036.foody.Database.Shop;
 import hcmute.danbaonguyen19110036.foody.Database.ShopDao;
 import hcmute.danbaonguyen19110036.foody.R;

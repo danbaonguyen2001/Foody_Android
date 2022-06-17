@@ -3,39 +3,19 @@ package hcmute.danbaonguyen19110036.foody.Activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteStatement;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ImageView;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
-import java.io.ByteArrayOutputStream;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.List;
 
-import hcmute.danbaonguyen19110036.foody.Database.Category;
-import hcmute.danbaonguyen19110036.foody.Database.CategoryDao;
-import hcmute.danbaonguyen19110036.foody.Database.DaoMaster;
-import hcmute.danbaonguyen19110036.foody.Database.DaoSession;
-import hcmute.danbaonguyen19110036.foody.Database.DatabaseApplication;
+import hcmute.danbaonguyen19110036.foody.Pattern.Singleton.DatabaseApplication;
 import hcmute.danbaonguyen19110036.foody.Database.Food;
 import hcmute.danbaonguyen19110036.foody.Database.FoodDao;
-import hcmute.danbaonguyen19110036.foody.Database.OrderDao;
-import hcmute.danbaonguyen19110036.foody.Database.OrderItemDao;
 import hcmute.danbaonguyen19110036.foody.Database.Shop;
 import hcmute.danbaonguyen19110036.foody.Database.ShopDao;
-import hcmute.danbaonguyen19110036.foody.Database.UserDao;
 import hcmute.danbaonguyen19110036.foody.R;
-import hcmute.danbaonguyen19110036.foody.Utils.CartModel;
 import hcmute.danbaonguyen19110036.foody.Utils.Model;
 import hcmute.danbaonguyen19110036.foody.Utils.SaveVariable;
 
@@ -79,7 +59,6 @@ public class SplashActivity extends AppCompatActivity {
         Food food6 = new Food(null,"Trung Nguyên Legend Coffee","Coffee sữa ngon, vừa túi tiền.",25000,R.drawable.food9,2L,1L);
         Food food7 = new Food(null,"Đen Đá Cafe","Coffee sữa ngon, hơi đắt.",27000,R.drawable.food7,2L,1L);
         Food food8 = new Food(null,"Mai Bingsu","Bingsu ngon, vừa túi tiền.",35000,R.drawable.food8,1L,1L);
-
         foodDao.insert(food1);
         foodDao.insert(food2);
         foodDao.insert(food4);

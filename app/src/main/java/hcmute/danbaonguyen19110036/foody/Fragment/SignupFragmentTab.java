@@ -14,7 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import org.greenrobot.greendao.query.QueryBuilder;
 import hcmute.danbaonguyen19110036.foody.Activity.LoginActivity;
-import hcmute.danbaonguyen19110036.foody.Database.DatabaseApplication;
+import hcmute.danbaonguyen19110036.foody.Pattern.Singleton.DatabaseApplication;
 import hcmute.danbaonguyen19110036.foody.Database.User;
 import hcmute.danbaonguyen19110036.foody.Database.UserDao;
 import hcmute.danbaonguyen19110036.foody.R;

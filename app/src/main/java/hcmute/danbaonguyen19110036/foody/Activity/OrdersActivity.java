@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -24,12 +23,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import hcmute.danbaonguyen19110036.foody.Adapter.FoodAdapter;
-import hcmute.danbaonguyen19110036.foody.Database.DaoMaster;
-import hcmute.danbaonguyen19110036.foody.Database.DaoSession;
-import hcmute.danbaonguyen19110036.foody.Database.DatabaseApplication;
+import hcmute.danbaonguyen19110036.foody.Pattern.Singleton.DatabaseApplication;
 import hcmute.danbaonguyen19110036.foody.Database.Food;
 import hcmute.danbaonguyen19110036.foody.Database.FoodDao;
-import hcmute.danbaonguyen19110036.foody.Database.Shop;
 import hcmute.danbaonguyen19110036.foody.Database.ShopDao;
 import hcmute.danbaonguyen19110036.foody.R;
 import hcmute.danbaonguyen19110036.foody.Utils.CartModel;
@@ -59,7 +55,7 @@ public class OrdersActivity extends AppCompatActivity {
         ConnectData();
         listViewFood =(ListView) findViewById(R.id.listview_food);
         editTextSearch = (EditText) findViewById(R.id.edtFoodName);
-        foodArrayList = foodDao.queryBuilder().where(FoodDao.Properties.CategoryId.eq(SaveVariable.shop.getId())).list();
+        foodArrayList = foodDao.queryBuilder().where(FoodDao.Properties.ShopId.eq(SaveVariable.shop.getId())).list();
         foodAdapter = new FoodAdapter(OrdersActivity.this,R.layout.layout_food,foodArrayList);
         listViewFood.setAdapter(foodAdapter);
         textViewShopName = findViewById(R.id.tvShopNameMenu);

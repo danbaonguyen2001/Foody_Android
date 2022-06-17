@@ -27,6 +27,7 @@ public class OrderItemDao extends AbstractDao<OrderItem, Long> {
         public final static Property OrderId = new Property(2, Long.class, "orderId", false, "ORDER_ID");
         public final static Property Quantity = new Property(3, int.class, "quantity", false, "QUANTITY");
         public final static Property TotalPrice = new Property(4, int.class, "totalPrice", false, "TOTAL_PRICE");
+        public final static Property Status = new Property(5, String.class, "status", false, "STATUS");
     }
 
 
@@ -46,7 +47,8 @@ public class OrderItemDao extends AbstractDao<OrderItem, Long> {
                 "\"FOOD_ID\" INTEGER," + // 1: foodId
                 "\"ORDER_ID\" INTEGER," + // 2: orderId
                 "\"QUANTITY\" INTEGER NOT NULL ," + // 3: quantity
-                "\"TOTAL_PRICE\" INTEGER NOT NULL );"); // 4: totalPrice
+                "\"TOTAL_PRICE\" INTEGER NOT NULL ," + // 4: totalPrice
+                "\"STATUS\" TEXT);"); // 5: status
     }
 
     /** Drops the underlying database table. */
@@ -75,6 +77,11 @@ public class OrderItemDao extends AbstractDao<OrderItem, Long> {
         }
         stmt.bindLong(4, entity.getQuantity());
         stmt.bindLong(5, entity.getTotalPrice());
+ 
+        String status = entity.getStatus();
+        if (status != null) {
+            stmt.bindString(6, status);
+        }
     }
 
     @Override
@@ -97,6 +104,11 @@ public class OrderItemDao extends AbstractDao<OrderItem, Long> {
         }
         stmt.bindLong(4, entity.getQuantity());
         stmt.bindLong(5, entity.getTotalPrice());
+ 
+        String status = entity.getStatus();
+        if (status != null) {
+            stmt.bindString(6, status);
+        }
     }
 
     @Override
@@ -111,7 +123,8 @@ public class OrderItemDao extends AbstractDao<OrderItem, Long> {
             cursor.isNull(offset + 1) ? null : cursor.getLong(offset + 1), // foodId
             cursor.isNull(offset + 2) ? null : cursor.getLong(offset + 2), // orderId
             cursor.getInt(offset + 3), // quantity
-            cursor.getInt(offset + 4) // totalPrice
+            cursor.getInt(offset + 4), // totalPrice
+            cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5) // status
         );
         return entity;
     }
@@ -123,6 +136,7 @@ public class OrderItemDao extends AbstractDao<OrderItem, Long> {
         entity.setOrderId(cursor.isNull(offset + 2) ? null : cursor.getLong(offset + 2));
         entity.setQuantity(cursor.getInt(offset + 3));
         entity.setTotalPrice(cursor.getInt(offset + 4));
+        entity.setStatus(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
      }
     
     @Override

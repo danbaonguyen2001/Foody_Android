@@ -6,15 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import hcmute.danbaonguyen19110036.foody.Adapter.NotificationAdapter;
-import hcmute.danbaonguyen19110036.foody.Database.DatabaseApplication;
-import hcmute.danbaonguyen19110036.foody.Database.Food;
+import hcmute.danbaonguyen19110036.foody.Pattern.Singleton.DatabaseApplication;
 import hcmute.danbaonguyen19110036.foody.Database.FoodDao;
 import hcmute.danbaonguyen19110036.foody.R;
-import hcmute.danbaonguyen19110036.foody.Utils.NotificationModel;
 import hcmute.danbaonguyen19110036.foody.Utils.SaveVariable;
 
 
