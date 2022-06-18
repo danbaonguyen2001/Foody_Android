@@ -6,7 +6,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="220dp"
+        android:layout_height="wrap_content"
         android:background="#F3ECEB"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -83,66 +83,110 @@
             android:padding="6dp"
             android:textSize="12dp"
             android:textStyle="bold"
-            app:layout_constraintLeft_toRightOf="@id/imgItemDialog"
-            app:layout_constraintTop_toBottomOf="@id/tvItemDescription"/>
-        <ImageView
-            android:id="@+id/imgPlus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tvItemName"
+            app:layout_constraintLeft_toRightOf="@id/tvItemDescription"
+            app:layout_constraintBottom_toTopOf="@+id/edtNote"
+            app:layout_constraintRight_toRightOf="parent"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/adding"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.95"
-            app:layout_constraintVertical_bias="0.55"
-            android:src="@drawable/ic_baseline_add_24"
-            android:background="@drawable/custom_button_login_tab_fragment"
-            />
-        <TextView
-            android:id="@+id/tvQuantity"
+            app:layout_constraintTop_toBottomOf="@+id/tvPriceItem"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="1"
-            android:textColor="@color/black"
-            android:padding="10dp"
-            android:textSize="12dp"
-            android:textStyle="bold"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.86"
-            app:layout_constraintVertical_bias="0.55"/>
-            />
-        <ImageView
-            android:id="@+id/imgSub"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.78"
-            app:layout_constraintVertical_bias="0.55"
-            android:src="@drawable/ic_baseline_remove_24"
-            android:background="@drawable/custom_button_login_tab_fragment"
-            />
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/imgPlus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/tvQuantity"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/ic_baseline_add_24"
+                android:background="@drawable/custom_button_login_tab_fragment"
+                />
+            <TextView
+                android:id="@+id/tvQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:padding="12dp"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                app:layout_constraintRight_toLeftOf="@+id/imgPlus"
+                app:layout_constraintLeft_toRightOf="@+id/imgSub"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+            <ImageView
+                android:id="@+id/imgSub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/tvQuantity"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/ic_baseline_remove_24"
+                android:background="@drawable/custom_button_login_tab_fragment"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
         <EditText
             android:id="@+id/edtNote"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:padding="8dp"
             android:background="@color/white"
             android:drawableStart="@drawable/ic_baseline_create_24"
             android:hint="Add note ..."
-            app:layout_constraintBottom_toTopOf="@id/tvAddToCart"
+            app:layout_constraintTop_toBottomOf="@+id/imgItemDialog"
+            app:layout_constraintBottom_toTopOf="@+id/option_food"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
-
+            app:layout_constraintWidth_percent="0.75" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/option_food"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/tvAddToCart"
+            app:layout_constraintTop_toBottomOf="@+id/edtNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <CheckBox
+                android:id="@+id/checkbox_1"
+                android:text="Đường đen 8000"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <CheckBox
+                android:id="@+id/checkbox_2"
+                android:text="Trân châu 10000"
+                app:layout_constraintTop_toBottomOf="@+id/checkbox_1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <CheckBox
+                android:id="@+id/checkbox_3"
+                android:text="Trái cây 5000"
+                app:layout_constraintTop_toBottomOf="@+id/checkbox_2"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <CheckBox
+                android:id="@+id/checkbox_4"
+                android:text="Khác 12000"
+                app:layout_constraintTop_toBottomOf="@+id/checkbox_3"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
         <TextView
             android:id="@+id/tvAddToCart"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:background="#00BCD4"
             android:padding="10dp"
             android:text="Add to Cart"
@@ -150,23 +194,22 @@
             android:textColor="@color/white"
             android:textSize="16dp"
             android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/option_food"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent" />
 
         <TextView
             android:id="@+id/tvPriceTotal"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:background="#00BCD4"
             android:text="210.000đ"
             android:textColor="@color/white"
             android:padding="6dp"
             android:textSize="16dp"
             android:textStyle="bold"
-            app:layout_constraintHorizontal_bias="0.9"
-            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/option_food"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
 

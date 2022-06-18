@@ -23,12 +23,13 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import hcmute.danbaonguyen19110036.foody.Database.User;
 import hcmute.danbaonguyen19110036.foody.Utils.SaveVariable;
 
 public class Strapi implements PaymentMethodStrategy{
     private Activity activity1;
     @Override
-    public void checkout(Activity activity) {
+    public void checkout(Activity activity, User user) {
         activity1 = activity;
         execute();
     }

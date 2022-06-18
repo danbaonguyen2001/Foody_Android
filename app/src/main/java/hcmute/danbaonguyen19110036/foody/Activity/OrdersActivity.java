@@ -13,6 +13,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -23,6 +24,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import hcmute.danbaonguyen19110036.foody.Adapter.FoodAdapter;
+import hcmute.danbaonguyen19110036.foody.Pattern.Decorator.BlackSugar;
+import hcmute.danbaonguyen19110036.foody.Pattern.Decorator.Buble;
+import hcmute.danbaonguyen19110036.foody.Pattern.Decorator.EggPudding;
+import hcmute.danbaonguyen19110036.foody.Pattern.Decorator.FoodDrinks;
+import hcmute.danbaonguyen19110036.foody.Pattern.Decorator.FruitPudding;
+import hcmute.danbaonguyen19110036.foody.Pattern.Decorator.IDrinks;
 import hcmute.danbaonguyen19110036.foody.Pattern.Singleton.DatabaseApplication;
 import hcmute.danbaonguyen19110036.foody.Database.Food;
 import hcmute.danbaonguyen19110036.foody.Database.FoodDao;
@@ -42,9 +49,15 @@ public class OrdersActivity extends AppCompatActivity {
     ImageView imageViewAdd,imageViewSub,imageViewBanner,imageViewItemDialog;
     FoodAdapter foodAdapter;
     Model model;
+    private CheckBox checkBox1,checkBox2,checkBox3,checkBox4;
     public List<Food> foodArrayList;
     public static int quantity;
     public static int price;
+    private BlackSugar blackSugar;
+    private Buble buble;
+    private FruitPudding fruitPudding;
+    private EggPudding eggPudding;
+    private FoodDrinks drinks;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,15 +117,69 @@ public class OrdersActivity extends AppCompatActivity {
         tvPriceItem.setText(String.valueOf(food.getPrice()));
         quantity = Integer.parseInt(textViewDialog.getText().toString());
         price = quantity*food.getPrice();
-        textViewPrice.setText(String.valueOf(price));
+        drinks = new FoodDrinks(price);
+        textViewPrice.setText(String.valueOf(drinks.Price()));
         imageViewItemDialog.setImageResource(food.getPath());
+        checkBox1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(checkBox1.isChecked()){
+                    blackSugar = new BlackSugar(drinks);
+                    drinks.setTotalPrice(blackSugar.Price());
+                }
+                else {
+                    drinks.setTotalPrice(drinks.Price()- blackSugar.getBlackSugarPrice());
+                }
+                textViewPrice.setText(String.valueOf(drinks.Price()));
+            }
+        });
+        checkBox2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(checkBox2.isChecked()){
+                    buble = new Buble(drinks);
+                    drinks.setTotalPrice(buble.Price());
+                }
+                else {
+                    drinks.setTotalPrice(drinks.Price()- buble.getBublePrice());
+                }
+                textViewPrice.setText(String.valueOf(drinks.Price()));
+            }
+        });
+        checkBox3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(checkBox3.isChecked()){
+                    fruitPudding = new FruitPudding(drinks);
+                    drinks.setTotalPrice(fruitPudding.Price());
+                }
+                else {
+                    drinks.setTotalPrice(drinks.Price()- fruitPudding.getFruitPrice());
+                }
+                textViewPrice.setText(String.valueOf(drinks.Price()));
+            }
+        });
+        checkBox4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(checkBox4.isChecked()){
+                    eggPudding = new EggPudding(drinks);
+                    drinks.setTotalPrice(eggPudding.Price());
+                }
+                else {
+                    drinks.setTotalPrice(drinks.Price()- eggPudding.getEggPuddingPrice());
+                }
+                textViewPrice.setText(String.valueOf(drinks.Price()));
+
+            }
+        });
         imageViewAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 quantity++;
+                drinks.setTotalPrice(drinks.Price()+food.getPrice());
                 textViewDialog.setText(String.valueOf(quantity));
-                price = quantity*food.getPrice();
-                textViewPrice.setText(String.valueOf(price));
+                textViewPrice.setText(String.valueOf(drinks.Price()));
             }
         });
         imageViewSub.setOnClickListener(new View.OnClickListener() {
@@ -123,8 +190,8 @@ public class OrdersActivity extends AppCompatActivity {
                 }
                 quantity--;
                 textViewDialog.setText(String.valueOf(quantity));
-                price = quantity*food.getPrice();
-                textViewPrice.setText(String.valueOf(price));
+                drinks.setTotalPrice(drinks.Price()-food.getPrice());
+                textViewPrice.setText(String.valueOf(drinks.Price()));
             }
         });
         btnClose.setOnClickListener(new View.OnClickListener() {
@@ -136,6 +203,7 @@ public class OrdersActivity extends AppCompatActivity {
         textViewAddtoCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                food.setPrice((int)drinks.Price());
                 CartModel cartModel = new CartModel(quantity,food);
                 if(SaveVariable.cartModelList==null){
                     SaveVariable.cartModelList = new ArrayList<>();
@@ -159,6 +227,10 @@ public class OrdersActivity extends AppCompatActivity {
         tvPriceItem = (TextView) dialog.findViewById(R.id.tvPriceItem);
         textViewAddtoCart = (TextView) dialog.findViewById(R.id.tvAddToCart);
         imageViewItemDialog = (ImageView) dialog.findViewById(R.id.imgItemDialog);
+        checkBox1=(CheckBox) dialog.findViewById(R.id.checkbox_1);
+        checkBox2=(CheckBox) dialog.findViewById(R.id.checkbox_2);
+        checkBox3=(CheckBox) dialog.findViewById(R.id.checkbox_3);
+        checkBox4=(CheckBox) dialog.findViewById(R.id.checkbox_4);
     }
 
     public void Search(View view){

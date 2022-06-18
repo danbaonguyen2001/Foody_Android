@@ -21,6 +21,8 @@
         <entry key="..\:/DOCUMENTATION OF SUBJECTS/HK6/Mobile Programing/FoodyNew/Foody_Android/app/src/main/res/layout/login_tab_fragment.xml" value="0.225" />
         <entry key="..\:/DOCUMENTATION OF SUBJECTS/HK6/Mobile Programing/FoodyNew/Foody_Android/app/src/main/res/layout/signup_tab_fragment.xml" value="0.1421875" />
         <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/drawable/custom_button_login_tab_fragment.xml" value="0.169" />
+        <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.1795" />
+        <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/drawable/ic_baseline_remove_24.xml" value="0.1795" />
         <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/activity_cart.xml" value="0.2" />
         <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/activity_forgot_password.xml" value="0.2" />
         <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/activity_home.xml" value="0.159375" />
@@ -36,7 +38,7 @@
         <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/fragment_notification.xml" value="0.12760416666666666" />
         <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/fragment_user.xml" value="0.159375" />
-        <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/layout_dialog_add_item.xml" value="0.1" />
+        <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/layout_dialog_add_item.xml" value="0.264" />
         <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/layout_dialog_logout.xml" value="0.1" />
         <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/layout_dialog_option_payment.xml" value="0.25416666666666665" />
         <entry key="..\:/Deadline/Android/Foody_Android/app/src/main/res/layout/layout_food.xml" value="0.13405797101449277" />

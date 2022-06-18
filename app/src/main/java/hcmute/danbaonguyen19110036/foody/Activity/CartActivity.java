@@ -68,7 +68,7 @@ public class CartActivity extends AppCompatActivity implements PaymentResultList
         ConnectDatabase();
         AnhXa();
         CheckoutContext context =new CheckoutContext(new Strapi());
-        context.Checkout(CartActivity.this);
+        context.Checkout(CartActivity.this,SaveVariable.user);
         model = new Model(this);
         model.loadData();
         cartModelList = SaveVariable.cartModelList;
@@ -133,7 +133,7 @@ public class CartActivity extends AppCompatActivity implements PaymentResultList
             @Override
             public void onClick(View view) {
                 CheckoutContext context = new CheckoutContext(new Razorpay());
-                context.Checkout(CartActivity.this);
+                context.Checkout(CartActivity.this,SaveVariable.user);
                 dialog.dismiss();
             }
         });
